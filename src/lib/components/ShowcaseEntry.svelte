@@ -55,13 +55,15 @@
 		padding: var(--space-md);
 		background: transparent;
 		color: transparent;
-		transition: color 0.3s, background 0.3s;
+		border-color: var(--neon-purple) !important;
+		transition: color 0.3s, background 0.3s, border-color 0.3s;
 		cursor: pointer;
 	}
 
 	.portal.nes-container:hover {
 		background: rgba(184, 41, 221, 0.05);
 		color: var(--neon-purple);
+		border-color: var(--neon-pink) !important;
 	}
 
 	.portal-frame {

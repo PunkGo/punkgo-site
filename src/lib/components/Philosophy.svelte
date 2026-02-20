@@ -79,10 +79,11 @@
 		padding: var(--space-md);
 		background: var(--bg-secondary);
 		color: var(--text-dim);
-		transition: color 0.2s;
+		transition: color 0.2s, border-color 0.2s;
 	}
 	.nes-container.pes-card:hover {
 		color: var(--neon-blue);
+		border-color: var(--neon-blue) !important;
 	}
 
 	.pes-icon {
@@ -111,6 +112,7 @@
 		padding: var(--space-sm) var(--space-md);
 		margin-bottom: var(--space-md);
 		display: inline-block;
+		border-color: var(--neon-green) !important;
 	}
 	.nes-container.is-dark.formula-block code {
 		font-family: var(--font-terminal);

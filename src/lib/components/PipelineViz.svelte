@@ -72,6 +72,7 @@
 	.nes-container.step.lit {
 		color: var(--neon-green);
 		opacity: 1;
+		border-color: var(--neon-green) !important;
 	}
 
 	.step-name {

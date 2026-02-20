@@ -21,10 +21,11 @@
 		padding: var(--space-sm);
 		background: var(--bg-secondary);
 		color: var(--text-dim);
-		transition: color 0.2s;
+		transition: color 0.2s, border-color 0.2s;
 	}
 	.nes-container.card:hover {
 		color: var(--neon-green);
+		border-color: var(--neon-green) !important;
 	}
 
 	.nes-text.number {

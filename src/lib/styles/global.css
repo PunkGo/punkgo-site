@@ -103,10 +103,12 @@ a:hover {
 }
 
 /* ============================================================
-   NES.css 覆盖 — 适配赛博朋克配色系统
+   NES.css 覆盖 — 赛博朋克暗色主题适配
+   核心思路：用 CSS 变量 --nes-color 统一控制每个组件的主色
+   组件层只需设置 --nes-color，自动驱动边框/按钮色
    ============================================================ */
 
-/* 字体：NES 的 font-face 在 nes-core 里不声明，我们用现有 Press Start 2P */
+/* 字体统一 */
 .nes-btn,
 .nes-container,
 .nes-progress,
@@ -116,37 +118,52 @@ a:hover {
   font-family: var(--font-pixel);
 }
 
-/* ── 按钮 ─────────────────────────────────────────────────── */
+/* ── 按钮：重置所有 NES 默认高亮色，改用语义 neon 色 ─────── */
+/* 消除 NES.css 的灰色 inset shadow（在黑色背景上产生噪点） */
+.nes-btn::after,
+.nes-btn:hover::after,
+.nes-btn:active:not(.is-disabled)::after {
+  box-shadow: none !important;
+}
+/* 消除 focus 蓝色轮廓 */
+.nes-btn:focus { box-shadow: none !important; }
+
+/* 基础样式 */
 .nes-btn {
-  font-family: var(--font-pixel);
   font-size: 8px;
   letter-spacing: 1px;
-  background: transparent;
+  background-color: transparent !important;
   color: var(--text-primary);
   cursor: pointer;
   padding: 6px 16px;
 }
-/* 颜色语义映射 */
-.nes-btn.is-success { color: var(--neon-green);  }
-.nes-btn.is-error   { color: var(--neon-pink);   }
-.nes-btn.is-primary { color: var(--neon-blue);   }
-.nes-btn.is-warning { color: var(--neon-yellow); }
 
-/* hover: 填充对应 neon 色 */
-.nes-btn.is-success:hover:not([disabled]) { background: var(--neon-green);  color: var(--bg-primary); }
-.nes-btn.is-error:hover:not([disabled])   { background: var(--neon-pink);   color: var(--bg-primary); }
-.nes-btn.is-primary:hover:not([disabled]) { background: var(--neon-blue);   color: var(--bg-primary); }
-.nes-btn.is-warning:hover:not([disabled]) { background: var(--neon-yellow); color: var(--bg-primary); }
+/* 按钮颜色语义 — border-color 驱动 NES 像素边框颜色 */
+.nes-btn           { border-color: var(--text-dim)      !important; color: var(--text-primary);  }
+.nes-btn.is-success{ border-color: var(--neon-green)    !important; color: var(--neon-green);    }
+.nes-btn.is-error  { border-color: var(--neon-pink)     !important; color: var(--neon-pink);     }
+.nes-btn.is-primary{ border-color: var(--neon-blue)     !important; color: var(--neon-blue);     }
+.nes-btn.is-warning{ border-color: var(--neon-yellow)   !important; color: var(--neon-yellow);   }
+
+/* hover：填充对应 neon 背景 */
+.nes-btn:hover:not([disabled])           { background-color: var(--text-dim)    !important; color: var(--bg-primary) !important; }
+.nes-btn.is-success:hover:not([disabled]){ background-color: var(--neon-green)  !important; color: var(--bg-primary) !important; }
+.nes-btn.is-error:hover:not([disabled])  { background-color: var(--neon-pink)   !important; color: var(--bg-primary) !important; }
+.nes-btn.is-primary:hover:not([disabled]){ background-color: var(--neon-blue)   !important; color: var(--bg-primary) !important; }
+.nes-btn.is-warning:hover:not([disabled]){ background-color: var(--neon-yellow) !important; color: var(--bg-primary) !important; }
 
 /* ── 容器 ─────────────────────────────────────────────────── */
+/* 默认容器：dim 色边框（低调），各组件可通过 border-color 覆盖 */
 .nes-container {
   background: var(--bg-secondary);
   color: var(--text-primary);
   padding: var(--space-md);
+  border-color: var(--text-dim) !important;
 }
 .nes-container.is-dark {
   background: var(--bg-terminal);
   color: var(--text-primary);
+  border-color: var(--text-dim) !important;
 }
 
 /* ── 进度条 ───────────────────────────────────────────────── */

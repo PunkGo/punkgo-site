@@ -157,6 +157,7 @@
 		box-shadow: 0 0 20px rgba(184, 41, 221, 0.15), inset 0 0 40px rgba(0, 0, 0, 0.3);
 		overflow: hidden;
 		padding: var(--space-md);
+		border-color: var(--neon-purple) !important;
 	}
 
 	.card-header {
@@ -278,10 +279,11 @@
 		color: var(--neon-purple);
 		font-size: 8px;
 		padding: 6px 16px;
+		border-color: var(--neon-purple) !important;
 	}
 	.flip-btn.nes-btn:hover:not([disabled]) {
-		background: var(--neon-purple);
-		color: var(--bg-primary);
+		background-color: var(--neon-purple) !important;
+		color: var(--bg-primary) !important;
 	}
 
 	.cmd-area {
