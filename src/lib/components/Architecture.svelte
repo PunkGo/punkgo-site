@@ -23,7 +23,7 @@
 
 <style>
 	.architecture {
-		padding: var(--space-xl) 0;
+		padding: var(--space-md) 0;
 	}
 
 	.divider {
@@ -31,7 +31,7 @@
 		color: var(--text-dim);
 		text-align: center;
 		font-size: 0.8rem;
-		margin-bottom: var(--space-lg);
+		margin-bottom: var(--space-md);
 		opacity: 0.4;
 		overflow: hidden;
 	}
@@ -40,7 +40,7 @@
 		font-family: var(--font-pixel);
 		font-size: clamp(12px, 2vw, 16px);
 		color: var(--neon-green);
-		margin-bottom: var(--space-lg);
+		margin-bottom: var(--space-md);
 		text-shadow: 0 0 10px var(--pixel-shadow);
 	}
 

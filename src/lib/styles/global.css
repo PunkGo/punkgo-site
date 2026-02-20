@@ -83,7 +83,7 @@ body::before {
 }
 
 section {
-  padding: var(--space-xl) var(--space-lg);
+  padding: var(--space-lg) var(--space-lg);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -98,5 +98,5 @@ a:hover {
 
 @media (max-width: 768px) {
   html { font-size: 16px; }
-  section { padding: var(--space-lg) var(--space-sm); }
+  section { padding: var(--space-md) var(--space-sm); }
 }

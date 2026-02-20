@@ -116,6 +116,7 @@
 		width: 100%;
 		max-width: 600px;
 		position: relative;
+		overflow: hidden;
 	}
 
 	/* Scanline wipe overlay */
@@ -155,6 +156,7 @@
 		display: flex;
 		flex-direction: column;
 		box-shadow: 0 0 20px rgba(184, 41, 221, 0.15), inset 0 0 40px rgba(0, 0, 0, 0.3);
+		overflow: hidden;
 	}
 
 	.card-header {
@@ -345,17 +347,58 @@
 	}
 
 	@media (max-width: 600px) {
-		.stat-label {
-			min-width: 80px;
-			font-size: 6px;
+		.card-face {
+			padding: var(--space-xs);
+		}
+
+		.card-header {
+			flex-direction: column;
+			gap: 4px;
 		}
 
 		.card-name {
 			font-size: 11px;
 		}
 
+		.card-desc {
+			font-size: 1rem;
+			margin-bottom: var(--space-sm);
+		}
+
 		.flow-art {
-			font-size: 0.8rem;
+			font-size: 0.7rem;
+		}
+
+		.card-flow {
+			margin-bottom: var(--space-sm);
+		}
+
+		.stat-label {
+			min-width: 70px;
+			font-size: 6px;
+		}
+
+		.stat-row {
+			gap: 8px;
+		}
+
+		.card-divider {
+			font-size: 0.5rem;
+		}
+
+		.card-actions {
+			flex-direction: column;
+			gap: 8px;
+			align-items: stretch;
+		}
+
+		.github-btn {
+			justify-content: center;
+			padding: 8px 12px;
+		}
+
+		.flip-btn {
+			align-self: center;
 		}
 	}
 </style>

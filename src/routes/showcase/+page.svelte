@@ -56,7 +56,7 @@ punkgo-watchdog export --output proof.json`}
 
 <style>
 	.showcase {
-		padding: var(--space-xl) var(--space-lg);
+		padding: var(--space-lg) var(--space-lg);
 		max-width: 1200px;
 		margin: 0 auto;
 		min-height: 100vh;
@@ -83,7 +83,7 @@ punkgo-watchdog export --output proof.json`}
 		color: var(--text-dim);
 		text-align: center;
 		font-size: 0.8rem;
-		margin-bottom: var(--space-lg);
+		margin-bottom: var(--space-md);
 		opacity: 0.4;
 		overflow: hidden;
 	}
@@ -100,21 +100,21 @@ punkgo-watchdog export --output proof.json`}
 		font-family: var(--font-terminal);
 		font-size: 1.2rem;
 		color: var(--text-dim);
-		margin-bottom: var(--space-xl);
+		margin-bottom: var(--space-lg);
 		line-height: 1.5;
 	}
 
 	.projects-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(400px, 600px));
+		grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 600px));
 		gap: var(--space-lg);
 		justify-content: center;
 	}
 
 	@media (max-width: 768px) {
 		.showcase {
-			padding: var(--space-lg) var(--space-sm);
-			padding-top: 80px;
+			padding: var(--space-md) var(--space-sm);
+			padding-top: 70px;
 		}
 
 		.projects-grid {
