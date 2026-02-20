@@ -22,11 +22,34 @@
 		github: string;
 	} = $props();
 
-	let flipped = $state(false);
+	let face = $state<'front' | 'back'>('front');
+	let transitioning = $state(false);
+
+	function flip(to: 'front' | 'back') {
+		if (transitioning) return;
+		transitioning = true;
+		// After the wipe covers the card, switch face
+		setTimeout(() => {
+			face = to;
+		}, 300);
+		// After the wipe reveals the new face, done
+		setTimeout(() => {
+			transitioning = false;
+		}, 600);
+	}
 </script>
 
-<div class="card">
-	{#if !flipped}
+<div class="card" class:transitioning>
+	<!-- Scanline wipe overlay -->
+	{#if transitioning}
+		<div class="wipe-overlay">
+			{#each Array(8) as _, i}
+				<div class="wipe-line" style="animation-delay: {i * 25}ms"></div>
+			{/each}
+		</div>
+	{/if}
+
+	{#if face === 'front'}
 		<!-- Front face -->
 		<div class="card-face">
 			<div class="card-header">
@@ -57,7 +80,7 @@
 				{/each}
 			</div>
 
-			<button class="flip-btn" onclick={() => flipped = true}>
+			<button class="flip-btn" onclick={() => flip('back')}>
 				[ {t('showcase.watchdog.cmd_title')} &gt; ]
 			</button>
 		</div>
@@ -80,7 +103,7 @@
 					<span class="btn-icon">&gt;_</span>
 					<span class="btn-text">{t('showcase.watchdog.github')}</span>
 				</a>
-				<button class="flip-btn" onclick={() => flipped = false}>
+				<button class="flip-btn" onclick={() => flip('front')}>
 					[ &lt; BACK ]
 				</button>
 			</div>
@@ -92,6 +115,37 @@
 	.card {
 		width: 100%;
 		max-width: 600px;
+		position: relative;
+	}
+
+	/* Scanline wipe overlay */
+	.wipe-overlay {
+		position: absolute;
+		inset: 0;
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	.wipe-line {
+		flex: 1;
+		background: var(--neon-purple);
+		transform: scaleX(0);
+		transform-origin: left;
+		animation: wipe-in 0.3s ease-in forwards, wipe-out 0.3s ease-out 0.3s forwards;
+		box-shadow: 0 0 8px rgba(184, 41, 221, 0.6);
+	}
+
+	@keyframes wipe-in {
+		0% { transform: scaleX(0); opacity: 1; }
+		100% { transform: scaleX(1); opacity: 1; }
+	}
+
+	@keyframes wipe-out {
+		0% { transform: scaleX(1); transform-origin: right; opacity: 1; }
+		100% { transform: scaleX(0); transform-origin: right; opacity: 0; }
 	}
 
 	.card-face {
@@ -101,12 +155,6 @@
 		display: flex;
 		flex-direction: column;
 		box-shadow: 0 0 20px rgba(184, 41, 221, 0.15), inset 0 0 40px rgba(0, 0, 0, 0.3);
-		animation: card-appear 0.3s ease-out;
-	}
-
-	@keyframes card-appear {
-		from { opacity: 0; transform: scale(0.97); }
-		to { opacity: 1; transform: scale(1); }
 	}
 
 	.card-header {
