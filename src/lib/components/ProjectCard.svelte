@@ -133,20 +133,15 @@
 	.wipe-line {
 		flex: 1;
 		background: var(--neon-purple);
-		transform: scaleX(0);
-		transform-origin: left;
-		animation: wipe-in 0.3s ease-in forwards, wipe-out 0.3s ease-out 0.3s forwards;
+		animation: wipe-across 0.6s ease-in-out forwards;
 		box-shadow: 0 0 8px rgba(184, 41, 221, 0.6);
 	}
 
-	@keyframes wipe-in {
-		0% { transform: scaleX(0); opacity: 1; }
-		100% { transform: scaleX(1); opacity: 1; }
-	}
-
-	@keyframes wipe-out {
-		0% { transform: scaleX(1); transform-origin: right; opacity: 1; }
-		100% { transform: scaleX(0); transform-origin: right; opacity: 0; }
+	@keyframes wipe-across {
+		0%   { transform: translateX(-100%); }
+		40%  { transform: translateX(0); }
+		60%  { transform: translateX(0); }
+		100% { transform: translateX(100%); }
 	}
 
 	.card-face {

@@ -8,17 +8,17 @@
 
 	<a href="/showcase/" class="portal">
 		<div class="portal-frame">
-			<pre class="gate">{`╔════════════════════════╗
-║  ░░░░░░░░░░░░░░░░░░  ║
-║  ░░              ░░  ║
-║  ░░  ┌────────┐  ░░  ║
-║  ░░  │▓▓▓▓▓▓▓▓│  ░░  ║
-║  ░░  │▓ LAB  ▓│  ░░  ║
-║  ░░  │▓▓▓▓▓▓▓▓│  ░░  ║
-║  ░░  └────────┘  ░░  ║
-║  ░░              ░░  ║
-║  ░░░░░░░░░░░░░░░░░░  ║
-╚════════════════════════╝`}</pre>
+			<div class="gate">
+				<div class="gate-border">
+					<div class="gate-static">
+						<div class="gate-inner">
+							<div class="gate-screen">
+								<span class="gate-label">LAB</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<div class="portal-glow"></div>
 		</div>
@@ -69,18 +69,91 @@
 	}
 
 	.gate {
-		font-family: var(--font-terminal);
-		font-size: 1rem;
-		color: var(--neon-purple);
-		line-height: 1.3;
-		text-shadow: 0 0 8px rgba(184, 41, 221, 0.5);
+		width: 200px;
+		height: 220px;
+		position: relative;
 		transition: all 0.3s;
 		user-select: none;
 	}
 
-	.portal:hover .gate {
+	.gate-border {
+		position: absolute;
+		inset: 0;
+		border: 3px solid var(--neon-purple);
+		box-shadow: 0 0 8px rgba(184, 41, 221, 0.4), inset 0 0 8px rgba(184, 41, 221, 0.1);
+		transition: all 0.3s;
+	}
+
+	.gate-static {
+		position: absolute;
+		inset: 10px;
+		background:
+			repeating-linear-gradient(
+				45deg,
+				transparent,
+				transparent 3px,
+				rgba(184, 41, 221, 0.12) 3px,
+				rgba(184, 41, 221, 0.12) 6px
+			);
+		border: 2px solid rgba(184, 41, 221, 0.3);
+		transition: all 0.3s;
+	}
+
+	.gate-inner {
+		position: absolute;
+		inset: 14px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.gate-screen {
+		width: 100px;
+		height: 70px;
+		border: 2px solid var(--neon-purple);
+		background: rgba(184, 41, 221, 0.08);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 0 12px rgba(184, 41, 221, 0.2), inset 0 0 20px rgba(184, 41, 221, 0.05);
+		transition: all 0.3s;
+	}
+
+	.gate-label {
+		font-family: var(--font-pixel);
+		font-size: 16px;
+		color: var(--neon-purple);
+		letter-spacing: 4px;
+		text-shadow: 0 0 10px rgba(184, 41, 221, 0.6);
+		transition: all 0.3s;
+	}
+
+	.portal:hover .gate-border {
+		border-color: var(--neon-pink);
+		box-shadow: 0 0 16px rgba(255, 45, 149, 0.5), inset 0 0 12px rgba(255, 45, 149, 0.1);
+	}
+
+	.portal:hover .gate-static {
+		background:
+			repeating-linear-gradient(
+				45deg,
+				transparent,
+				transparent 3px,
+				rgba(255, 45, 149, 0.15) 3px,
+				rgba(255, 45, 149, 0.15) 6px
+			);
+		border-color: rgba(255, 45, 149, 0.4);
+	}
+
+	.portal:hover .gate-screen {
+		border-color: var(--neon-pink);
+		background: rgba(255, 45, 149, 0.1);
+		box-shadow: 0 0 20px rgba(255, 45, 149, 0.3), inset 0 0 24px rgba(255, 45, 149, 0.08);
+	}
+
+	.portal:hover .gate-label {
 		color: var(--neon-pink);
-		text-shadow: 0 0 16px rgba(255, 45, 149, 0.6);
+		text-shadow: 0 0 14px rgba(255, 45, 149, 0.7);
 	}
 
 	.portal-glow {
@@ -159,7 +232,17 @@
 		}
 
 		.gate {
-			font-size: 0.7rem;
+			width: 160px;
+			height: 180px;
+		}
+
+		.gate-screen {
+			width: 80px;
+			height: 56px;
+		}
+
+		.gate-label {
+			font-size: 12px;
 		}
 	}
 </style>
