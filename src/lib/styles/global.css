@@ -45,6 +45,7 @@ html {
 
 body {
   overflow-x: hidden;
+  background-color: var(--bg-primary);
   /* Grid layer: subtle dark lines every 32px */
   background-image:
     linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
