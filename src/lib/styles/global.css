@@ -100,3 +100,75 @@ a:hover {
   html { font-size: 16px; }
   section { padding: var(--space-md) var(--space-sm); }
 }
+
+/* ============================================================
+   NES.css 覆盖 — 适配赛博朋克配色系统
+   ============================================================ */
+
+/* 字体：NES 的 font-face 在 nes-core 里不声明，我们用现有 Press Start 2P */
+.nes-btn,
+.nes-container,
+.nes-progress,
+.nes-badge,
+.nes-text,
+.nes-icon {
+  font-family: var(--font-pixel);
+}
+
+/* ── 按钮 ─────────────────────────────────────────────────── */
+.nes-btn {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  letter-spacing: 1px;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 6px 16px;
+}
+/* 颜色语义映射 */
+.nes-btn.is-success { color: var(--neon-green);  }
+.nes-btn.is-error   { color: var(--neon-pink);   }
+.nes-btn.is-primary { color: var(--neon-blue);   }
+.nes-btn.is-warning { color: var(--neon-yellow); }
+
+/* hover: 填充对应 neon 色 */
+.nes-btn.is-success:hover:not([disabled]) { background: var(--neon-green);  color: var(--bg-primary); }
+.nes-btn.is-error:hover:not([disabled])   { background: var(--neon-pink);   color: var(--bg-primary); }
+.nes-btn.is-primary:hover:not([disabled]) { background: var(--neon-blue);   color: var(--bg-primary); }
+.nes-btn.is-warning:hover:not([disabled]) { background: var(--neon-yellow); color: var(--bg-primary); }
+
+/* ── 容器 ─────────────────────────────────────────────────── */
+.nes-container {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: var(--space-md);
+}
+.nes-container.is-dark {
+  background: var(--bg-terminal);
+  color: var(--text-primary);
+}
+
+/* ── 进度条 ───────────────────────────────────────────────── */
+progress.nes-progress {
+  height: 16px;
+}
+progress.nes-progress.is-success::-webkit-progress-value { background: var(--neon-green);  }
+progress.nes-progress.is-primary::-webkit-progress-value { background: var(--neon-blue);   }
+progress.nes-progress.is-warning::-webkit-progress-value { background: var(--neon-yellow); }
+progress.nes-progress.is-error::-webkit-progress-value   { background: var(--neon-orange); }
+progress.nes-progress.is-success::-moz-progress-bar { background: var(--neon-green);  }
+progress.nes-progress.is-primary::-moz-progress-bar { background: var(--neon-blue);   }
+progress.nes-progress.is-warning::-moz-progress-bar { background: var(--neon-yellow); }
+progress.nes-progress.is-error::-moz-progress-bar   { background: var(--neon-orange); }
+
+/* ── 徽章 ─────────────────────────────────────────────────── */
+.nes-badge span.is-success  { background: var(--neon-green);  color: var(--bg-primary); }
+.nes-badge span.is-error    { background: var(--neon-pink);   color: var(--bg-primary); }
+.nes-badge span.is-primary  { background: var(--neon-blue);   color: var(--bg-primary); }
+.nes-badge span.is-warning  { background: var(--neon-yellow); color: var(--bg-primary); }
+
+/* ── 文字颜色语义 ──────────────────────────────────────────── */
+.nes-text.is-success { color: var(--neon-green);  }
+.nes-text.is-error   { color: var(--neon-pink);   }
+.nes-text.is-primary { color: var(--neon-blue);   }
+.nes-text.is-warning { color: var(--neon-yellow); }

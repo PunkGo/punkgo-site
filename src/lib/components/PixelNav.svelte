@@ -24,7 +24,7 @@
 		<a href="/#quickstart">{t('nav.quickstart')}</a>
 		<a href="/showcase/">{t('nav.showcase')}</a>
 		<a href="/#links">{t('nav.links')}</a>
-		<button class="lang-btn" onclick={toggleLang}>
+		<button class="nes-btn is-success lang-btn" onclick={toggleLang}>
 			{getLocale() === 'zh' ? 'EN' : '中'}
 		</button>
 	</div>
@@ -78,19 +78,11 @@
 		text-shadow: 0 0 8px var(--pixel-shadow);
 	}
 
-	.lang-btn {
-		background: none;
-		border: var(--border-pixel);
-		color: var(--neon-green);
+	.nes-btn.lang-btn {
 		font-family: var(--font-cjk);
 		font-size: 14px;
 		padding: 4px 10px;
-		cursor: pointer;
 		line-height: 1;
-	}
-	.lang-btn:hover {
-		background: var(--neon-green);
-		color: var(--bg-primary);
 	}
 
 	@media (max-width: 768px) {

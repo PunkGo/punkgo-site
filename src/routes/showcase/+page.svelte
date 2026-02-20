@@ -9,7 +9,7 @@
 </svelte:head>
 
 <section class="showcase">
-	<a href="/" class="back-link">{t('showcase.back')}</a>
+	<a href="/" class="nes-btn back-link">{t('showcase.back')}</a>
 
 	<pre class="divider">{DIVIDER}</pre>
 
@@ -62,20 +62,16 @@ punkgo-watchdog export --output proof.json`}
 		min-height: 100vh;
 	}
 
-	.back-link {
+	.nes-btn.back-link {
 		display: inline-block;
-		font-family: var(--font-pixel);
 		font-size: 10px;
 		color: var(--text-dim);
 		text-decoration: none;
 		letter-spacing: 2px;
 		margin-bottom: var(--space-md);
-		transition: color 0.15s;
 	}
-
-	.back-link:hover {
+	.nes-btn.back-link:hover:not([disabled]) {
 		color: var(--neon-green);
-		text-shadow: 0 0 8px var(--pixel-shadow);
 	}
 
 	.divider {

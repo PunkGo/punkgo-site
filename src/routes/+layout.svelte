@@ -4,6 +4,7 @@
 	import ScanlineOverlay from '$lib/components/ScanlineOverlay.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { initLocale } from '$lib/i18n/index.svelte';
+	import 'nes.css/css/nes-core.min.css';
 	import '$lib/styles/global.css';
 	import '$lib/styles/animations.css';
 

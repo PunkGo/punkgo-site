@@ -37,7 +37,7 @@
 			<span class="arrow" class:lit={visible && activeStep >= i}>{'>>>'}</span>
 		{/if}
 		<div
-			class="step"
+			class="nes-container step"
 			class:lit={visible && activeStep >= i}
 		>
 			<span class="step-name">{t(`architecture.steps.${key}`)}</span>
@@ -57,22 +57,21 @@
 		scrollbar-color: var(--neon-green) var(--bg-primary);
 	}
 
-	.step {
+	.nes-container.step {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		min-width: 110px;
 		padding: 12px 8px;
-		border: 2px solid var(--text-dim);
 		background: var(--bg-secondary);
+		color: var(--text-dim);
 		opacity: 0.3;
-		transition: all 0.3s;
+		transition: opacity 0.3s, color 0.3s;
 	}
 
-	.step.lit {
-		border-color: var(--neon-green);
+	.nes-container.step.lit {
+		color: var(--neon-green);
 		opacity: 1;
-		box-shadow: 0 0 10px var(--pixel-shadow);
 	}
 
 	.step-name {
@@ -91,7 +90,7 @@
 		text-align: center;
 		line-height: 1.3;
 	}
-	.step.lit .step-desc {
+	.nes-container.step.lit .step-desc {
 		color: var(--text-primary);
 	}
 

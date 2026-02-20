@@ -13,7 +13,7 @@
 			href="https://github.com/PunkGo/punkgo-kernel"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="link-btn"
+			class="nes-btn is-success link-btn"
 		>
 			<span class="link-icon">&gt;_</span>
 			<span class="link-text">{t('links.github')}</span>
@@ -23,7 +23,7 @@
 			href="https://github.com/PunkGo/punkgo-kernel/blob/main/docs/PunkGo_Whitepaper_EN.md"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="link-btn"
+			class="nes-btn is-success link-btn"
 		>
 			<span class="link-icon">&#9638;</span>
 			<span class="link-text">{t('links.whitepaper')} (EN)</span>
@@ -33,7 +33,7 @@
 			href="https://github.com/PunkGo/punkgo-kernel/blob/main/docs/PunkGo_Whitepaper_ZH.md"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="link-btn"
+			class="nes-btn is-success link-btn"
 		>
 			<span class="link-icon">&#9638;</span>
 			<span class="link-text">{t('links.whitepaper')} (ZH)</span>
@@ -43,7 +43,7 @@
 			href="https://github.com/PunkGo/punkgo-kernel/blob/main/docs/PIP-001_EN.md"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="link-btn"
+			class="nes-btn is-success link-btn"
 		>
 			<span class="link-icon">&#9881;</span>
 			<span class="link-text">{t('links.pip001')}</span>
@@ -80,30 +80,18 @@
 		gap: var(--space-sm);
 	}
 
-	.link-btn {
+	.nes-btn.link-btn {
 		display: flex;
 		align-items: center;
 		gap: 12px;
 		padding: var(--space-sm) var(--space-md);
-		border: 2px solid var(--neon-green);
-		background: var(--bg-secondary);
-		color: var(--neon-green);
 		text-decoration: none;
-		transition: all 0.15s;
-		cursor: pointer;
-	}
-	.link-btn:hover {
-		background: var(--neon-green);
-		color: var(--bg-primary);
-		transform: translateY(-2px);
-		box-shadow: 0 4px 0 0 rgba(57, 255, 20, 0.4);
-	}
-	.link-btn:active {
-		transform: translateY(1px);
-		box-shadow: none;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.link-icon {
+		font-family: var(--font-terminal);
 		font-size: 1.4rem;
 		flex-shrink: 0;
 	}

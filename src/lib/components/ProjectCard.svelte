@@ -51,11 +51,13 @@
 
 	{#if face === 'front'}
 		<!-- Front face -->
-		<div class="card-face">
+		<div class="nes-container card-face">
 			<div class="card-header">
 				<div class="card-name-row">
 					<h3 class="card-name">{name}</h3>
-					<span class="card-status">{status}</span>
+					<span class="nes-badge card-status">
+						<span class="is-success">{status}</span>
+					</span>
 				</div>
 				<span class="card-class">{classLabel}</span>
 			</div>
@@ -70,23 +72,25 @@
 			</div>
 
 			<div class="card-stats">
-				{#each stats as stat}
+				{#each stats as stat, i}
 					<div class="stat-row">
 						<span class="stat-label">{stat.label}</span>
-						<div class="stat-bar">
-							<div class="stat-fill" style="width: {stat.level}%"></div>
-						</div>
+						<progress
+							class="nes-progress {['is-success','is-primary','is-warning','is-error'][i]}"
+							value={stat.level}
+							max="100"
+						></progress>
 					</div>
 				{/each}
 			</div>
 
-			<button class="flip-btn" onclick={() => flip('back')}>
+			<button class="nes-btn flip-btn" onclick={() => flip('back')}>
 				[ {t('showcase.watchdog.cmd_title')} &gt; ]
 			</button>
 		</div>
 	{:else}
 		<!-- Back face -->
-		<div class="card-face">
+		<div class="nes-container card-face">
 			<div class="card-header">
 				<h3 class="card-name">{name}</h3>
 				<span class="card-class">{t('showcase.watchdog.cmd_title')}</span>
@@ -99,11 +103,11 @@
 			</div>
 
 			<div class="card-actions">
-				<a href={github} target="_blank" rel="noopener noreferrer" class="github-btn">
-					<span class="btn-icon">&gt;_</span>
+				<a href={github} target="_blank" rel="noopener noreferrer" class="nes-btn is-success github-btn">
+					<i class="nes-icon github is-small"></i>
 					<span class="btn-text">{t('showcase.watchdog.github')}</span>
 				</a>
-				<button class="flip-btn" onclick={() => flip('front')}>
+				<button class="nes-btn flip-btn" onclick={() => flip('front')}>
 					[ &lt; BACK ]
 				</button>
 			</div>
@@ -144,14 +148,15 @@
 		100% { transform: translateX(100%); }
 	}
 
-	.card-face {
-		border: 2px solid var(--neon-purple);
+	/* NES container 颜色覆盖为紫色（赛博朋克配色） */
+	.card-face.nes-container {
+		color: var(--neon-purple);
 		background: var(--bg-secondary);
-		padding: var(--space-md);
 		display: flex;
 		flex-direction: column;
 		box-shadow: 0 0 20px rgba(184, 41, 221, 0.15), inset 0 0 40px rgba(0, 0, 0, 0.3);
 		overflow: hidden;
+		padding: var(--space-md);
 	}
 
 	.card-header {
@@ -176,18 +181,17 @@
 	}
 
 	.card-status {
+		animation: status-pulse 2s ease-in-out infinite;
+	}
+	.card-status span {
 		font-family: var(--font-pixel);
 		font-size: 7px;
-		color: var(--bg-primary);
-		background: var(--neon-green);
-		padding: 2px 8px;
 		letter-spacing: 1px;
-		animation: status-pulse 2s ease-in-out infinite;
 	}
 
 	@keyframes status-pulse {
-		0%, 100% { box-shadow: 0 0 4px var(--pixel-shadow); }
-		50% { box-shadow: 0 0 12px var(--neon-green); }
+		0%, 100% { filter: brightness(1); }
+		50% { filter: brightness(1.3) drop-shadow(0 0 4px var(--neon-green)); }
 	}
 
 	.card-class {
@@ -241,7 +245,7 @@
 	.card-stats {
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
+		gap: 10px;
 		margin-bottom: var(--space-md);
 	}
 
@@ -258,44 +262,26 @@
 		min-width: 120px;
 		letter-spacing: 1px;
 		text-transform: uppercase;
+		flex-shrink: 0;
 	}
 
-	.stat-bar {
+	/* NES progress — 像素跳格动画，比 ease-out 更 8bit */
+	.stat-row progress.nes-progress {
 		flex: 1;
-		height: 12px;
-		background: var(--bg-primary);
-		border: 1px solid #333;
-		overflow: hidden;
+		height: 16px;
+		transition: width 0.8s steps(12);
 	}
 
-	.stat-fill {
-		height: 100%;
-		transition: width 1s ease-out;
-	}
-
-	.stat-row:nth-child(1) .stat-fill { background: var(--neon-green); box-shadow: 0 0 6px var(--pixel-shadow); }
-	.stat-row:nth-child(2) .stat-fill { background: var(--neon-blue); box-shadow: 0 0 6px rgba(0, 212, 255, 0.4); }
-	.stat-row:nth-child(3) .stat-fill { background: var(--neon-yellow); box-shadow: 0 0 6px rgba(255, 230, 0, 0.4); }
-	.stat-row:nth-child(4) .stat-fill { background: var(--neon-orange); box-shadow: 0 0 6px rgba(255, 107, 53, 0.4); }
-
-	.flip-btn {
+	.flip-btn.nes-btn {
 		margin-top: auto;
 		align-self: flex-end;
-		background: none;
-		border: 1px solid var(--neon-purple);
 		color: var(--neon-purple);
-		font-family: var(--font-pixel);
 		font-size: 8px;
 		padding: 6px 16px;
-		cursor: pointer;
-		letter-spacing: 1px;
-		transition: all 0.15s;
 	}
-
-	.flip-btn:hover {
+	.flip-btn.nes-btn:hover:not([disabled]) {
 		background: var(--neon-purple);
 		color: var(--bg-primary);
-		box-shadow: 0 0 10px rgba(184, 41, 221, 0.4);
 	}
 
 	.cmd-area {
@@ -308,30 +294,14 @@
 		justify-content: space-between;
 		align-items: center;
 		margin-top: auto;
+		gap: var(--space-sm);
 	}
 
-	.github-btn {
+	.github-btn.nes-btn {
 		display: flex;
 		align-items: center;
 		gap: 8px;
-		padding: 6px 16px;
-		border: 2px solid var(--neon-green);
-		background: var(--bg-secondary);
-		color: var(--neon-green);
 		text-decoration: none;
-		transition: all 0.15s;
-		cursor: pointer;
-	}
-
-	.github-btn:hover {
-		background: var(--neon-green);
-		color: var(--bg-primary);
-		transform: translateY(-2px);
-		box-shadow: 0 4px 0 0 rgba(57, 255, 20, 0.4);
-	}
-
-	.btn-icon {
-		font-size: 1rem;
 	}
 
 	.btn-text {
@@ -342,7 +312,7 @@
 	}
 
 	@media (max-width: 600px) {
-		.card-face {
+		.card-face.nes-container {
 			padding: var(--space-xs);
 		}
 
@@ -387,12 +357,11 @@
 			align-items: stretch;
 		}
 
-		.github-btn {
+		.github-btn.nes-btn {
 			justify-content: center;
-			padding: 8px 12px;
 		}
 
-		.flip-btn {
+		.flip-btn.nes-btn {
 			align-self: center;
 		}
 	}

@@ -54,7 +54,7 @@
 	let lines = $derived(parseLines(code));
 </script>
 
-<div class="terminal">
+<div class="nes-container is-dark terminal">
 	<div class="title-bar">
 		<div class="dots">
 			<span class="dot dot-r"></span>
@@ -62,7 +62,7 @@
 			<span class="dot dot-g"></span>
 		</div>
 		<span class="title">{title}</span>
-		<button class="copy-btn" onclick={copyCode}>
+		<button class="nes-btn copy-btn" onclick={copyCode}>
 			{copied ? '[ OK ]' : '[ COPY ]'}
 		</button>
 	</div>
@@ -82,11 +82,12 @@
 </div>
 
 <style>
-	.terminal {
+	.nes-container.is-dark.terminal {
 		background: var(--bg-terminal);
-		border: 2px solid #333;
+		color: var(--text-primary);
 		margin-bottom: var(--space-md);
 		overflow: hidden;
+		padding: 0;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), inset 0 0 60px rgba(0, 0, 0, 0.3);
 	}
 
@@ -120,21 +121,14 @@
 		letter-spacing: 2px;
 	}
 
-	.copy-btn {
-		background: none;
-		border: 1px solid #444;
-		color: #555;
-		font-family: var(--font-pixel);
+	.nes-btn.copy-btn {
 		font-size: 7px;
 		padding: 3px 8px;
-		cursor: pointer;
+		color: #555;
 		letter-spacing: 1px;
-		transition: all 0.15s;
 	}
-	.copy-btn:hover {
-		border-color: var(--neon-green);
+	.nes-btn.copy-btn:hover {
 		color: var(--neon-green);
-		box-shadow: 0 0 6px var(--pixel-shadow);
 	}
 
 	.code-area {

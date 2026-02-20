@@ -11,24 +11,24 @@
 	<p class="definition">{t('philosophy.definition')}</p>
 
 	<div class="pes-grid">
-		<div class="pes-card">
+		<div class="nes-container pes-card">
 			<div class="pes-icon">&#9876;</div>
 			<h3>{t('philosophy.p_title')}</h3>
 			<p>{t('philosophy.p_desc')}</p>
 		</div>
-		<div class="pes-card">
+		<div class="nes-container pes-card">
 			<div class="pes-icon">&#9889;</div>
 			<h3>{t('philosophy.e_title')}</h3>
 			<p>{t('philosophy.e_desc')}</p>
 		</div>
-		<div class="pes-card">
+		<div class="nes-container pes-card">
 			<div class="pes-icon">&#9640;</div>
 			<h3>{t('philosophy.s_title')}</h3>
 			<p>{t('philosophy.s_desc')}</p>
 		</div>
 	</div>
 
-	<div class="formula-block">
+	<div class="nes-container is-dark formula-block">
 		<code>S' = f(S, A, E)&nbsp;&nbsp;&nbsp;where&nbsp;&nbsp;E' = E - cost(A)</code>
 	</div>
 
@@ -75,46 +75,44 @@
 		margin-bottom: var(--space-lg);
 	}
 
-	.pes-card {
-		border: 2px solid var(--text-dim);
+	.nes-container.pes-card {
 		padding: var(--space-md);
 		background: var(--bg-secondary);
-		transition: border-color 0.2s;
+		color: var(--text-dim);
+		transition: color 0.2s;
 	}
-	.pes-card:hover {
-		border-color: var(--neon-blue);
+	.nes-container.pes-card:hover {
+		color: var(--neon-blue);
 	}
 
 	.pes-icon {
 		font-size: 2rem;
 		margin-bottom: var(--space-xs);
 	}
-	.pes-card:nth-child(1) .pes-icon { color: var(--neon-pink); }
-	.pes-card:nth-child(2) .pes-icon { color: var(--neon-yellow); }
-	.pes-card:nth-child(3) .pes-icon { color: var(--neon-blue); }
+	.nes-container.pes-card:nth-child(1) .pes-icon { color: var(--neon-pink); }
+	.nes-container.pes-card:nth-child(2) .pes-icon { color: var(--neon-yellow); }
+	.nes-container.pes-card:nth-child(3) .pes-icon { color: var(--neon-blue); }
 
-	.pes-card h3 {
+	.nes-container.pes-card h3 {
 		font-family: var(--font-pixel);
 		font-size: 10px;
 		color: var(--neon-green);
 		margin-bottom: 8px;
 	}
 
-	.pes-card p {
+	.nes-container.pes-card p {
 		font-family: var(--font-terminal);
 		font-size: 1rem;
 		color: var(--text-primary);
 		line-height: 1.5;
 	}
 
-	.formula-block {
-		background: var(--bg-terminal);
-		border: var(--border-pixel);
+	.nes-container.is-dark.formula-block {
 		padding: var(--space-sm) var(--space-md);
 		margin-bottom: var(--space-md);
 		display: inline-block;
 	}
-	.formula-block code {
+	.nes-container.is-dark.formula-block code {
 		font-family: var(--font-terminal);
 		font-size: 1.3rem;
 		color: var(--neon-green);

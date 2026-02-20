@@ -10,29 +10,26 @@
 	} = $props();
 </script>
 
-<div class="card">
-	<span class="number">{String(number).padStart(2, '0')}</span>
+<div class="nes-container card">
+	<span class="nes-text is-error number">{String(number).padStart(2, '0')}</span>
 	<h3 class="title">{title}</h3>
 	<p class="desc">{desc}</p>
 </div>
 
 <style>
-	.card {
-		border: 2px solid var(--text-dim);
+	.nes-container.card {
 		padding: var(--space-sm);
 		background: var(--bg-secondary);
-		transition: all 0.2s;
+		color: var(--text-dim);
+		transition: color 0.2s;
 	}
-	.card:hover {
-		border-color: var(--neon-green);
-		box-shadow: 0 0 15px var(--pixel-shadow);
-		transform: translateY(-2px);
+	.nes-container.card:hover {
+		color: var(--neon-green);
 	}
 
-	.number {
+	.nes-text.number {
 		font-family: var(--font-pixel);
 		font-size: 24px;
-		color: var(--neon-pink);
 		display: block;
 		margin-bottom: 8px;
 	}

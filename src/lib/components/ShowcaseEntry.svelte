@@ -6,7 +6,7 @@
 <div class="showcase-entry">
 	<pre class="divider">{DIVIDER}</pre>
 
-	<a href="/showcase/" class="portal">
+	<a href="/showcase/" class="nes-container portal">
 		<div class="portal-frame">
 			<div class="gate">
 				<div class="gate-border">
@@ -26,7 +26,7 @@
 		<div class="portal-text">
 			<h3 class="portal-title">{t('showcase_entry.title')}</h3>
 			<p class="portal-subtitle">{t('showcase_entry.subtitle')}</p>
-			<span class="portal-hint">{t('showcase_entry.hint')}</span>
+			<span class="nes-text portal-hint">{t('showcase_entry.hint')}</span>
 		</div>
 	</a>
 </div>
@@ -46,21 +46,22 @@
 		overflow: hidden;
 	}
 
-	.portal {
+	.portal.nes-container {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		gap: var(--space-lg);
 		text-decoration: none;
 		padding: var(--space-md);
-		border: 2px solid transparent;
-		transition: all 0.3s;
+		background: transparent;
+		color: transparent;
+		transition: color 0.3s, background 0.3s;
 		cursor: pointer;
 	}
 
-	.portal:hover {
-		border-color: var(--neon-purple);
+	.portal.nes-container:hover {
 		background: rgba(184, 41, 221, 0.05);
+		color: var(--neon-purple);
 	}
 
 	.portal-frame {
@@ -202,7 +203,7 @@
 		line-height: 1.5;
 	}
 
-	.portal-hint {
+	.nes-text.portal-hint {
 		font-family: var(--font-pixel);
 		font-size: 10px;
 		color: var(--neon-green);
