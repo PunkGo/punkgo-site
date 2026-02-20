@@ -3,6 +3,7 @@
     "philosophy": "历史权",
     "architecture": "架构",
     "quickstart": "快速开始",
+    "showcase": "实验室",
     "links": "链接"
   },
   "hero": {
@@ -58,6 +59,29 @@
     "build_title": "构建与测试",
     "kernel_title": "启动内核",
     "cli_title": "CLI 命令"
+  },
+  "showcase_entry": {
+    "title": "进入实验室",
+    "subtitle": "看看用 PunkGo Kernel 能构建什么",
+    "hint": "[ 按下开始 ]"
+  },
+  "showcase": {
+    "title": "// 基于 PunkGo 构建",
+    "subtitle": "在内核之上锻造的项目。每一个都在书写自己的历史。",
+    "back": "< 返回",
+    "watchdog": {
+      "name": "WATCHDOG",
+      "class": "哨兵",
+      "status": "运行中",
+      "desc": "创作过程溯源。监控你的文件，将每一次变更提交到内核的仅追加日志，附带 Merkle 证明。不只是证明文件存在——而是证明它何时、如何诞生。",
+      "flow_title": "数据流",
+      "stat_log": "仅追加日志",
+      "stat_merkle": "Merkle 证明",
+      "stat_energy": "能量系统",
+      "stat_ipc": "IPC 协议",
+      "cmd_title": "命令",
+      "github": "GitHub"
+    }
   },
   "links": {
     "title": "// 链接",

@@ -3,6 +3,7 @@
 	import Philosophy from '$lib/components/Philosophy.svelte';
 	import Architecture from '$lib/components/Architecture.svelte';
 	import QuickStart from '$lib/components/QuickStart.svelte';
+	import ShowcaseEntry from '$lib/components/ShowcaseEntry.svelte';
 	import Links from '$lib/components/Links.svelte';
 </script>
 
@@ -24,6 +25,10 @@
 
 <section id="quickstart">
 	<QuickStart />
+</section>
+
+<section id="showcase">
+	<ShowcaseEntry />
 </section>
 
 <section id="links">

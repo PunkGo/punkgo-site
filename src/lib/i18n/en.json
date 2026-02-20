@@ -3,6 +3,7 @@
     "philosophy": "RIGHT",
     "architecture": "ARCH",
     "quickstart": "START",
+    "showcase": "LAB",
     "links": "LINKS"
   },
   "hero": {
@@ -58,6 +59,29 @@
     "build_title": "Build & Test",
     "kernel_title": "Start Kernel",
     "cli_title": "CLI Commands"
+  },
+  "showcase_entry": {
+    "title": "ENTER THE LAB",
+    "subtitle": "See what's being built with PunkGo Kernel",
+    "hint": "[ PRESS START ]"
+  },
+  "showcase": {
+    "title": "// Built with PunkGo",
+    "subtitle": "Projects forged on the kernel. Each one writes its own history.",
+    "back": "< BACK",
+    "watchdog": {
+      "name": "WATCHDOG",
+      "class": "SENTINEL",
+      "status": "ACTIVE",
+      "desc": "Creation process provenance. Watches your files, submits every change to the kernel's append-only log with Merkle proofs. Not just proving a file exists \u2014 proving when and how it came into being.",
+      "flow_title": "DATA FLOW",
+      "stat_log": "Append-Only Log",
+      "stat_merkle": "Merkle Proof",
+      "stat_energy": "Energy System",
+      "stat_ipc": "IPC Protocol",
+      "cmd_title": "COMMANDS",
+      "github": "GitHub"
+    }
   },
   "links": {
     "title": "// Links",

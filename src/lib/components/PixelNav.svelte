@@ -17,12 +17,13 @@
 </script>
 
 <nav class="pixel-nav" class:scrolled>
-	<a href="#hero" class="brand">PunkGo</a>
+	<a href="/" class="brand">PunkGo</a>
 	<div class="nav-links">
-		<a href="#philosophy">{t('nav.philosophy')}</a>
-		<a href="#architecture">{t('nav.architecture')}</a>
-		<a href="#quickstart">{t('nav.quickstart')}</a>
-		<a href="#links">{t('nav.links')}</a>
+		<a href="/#philosophy">{t('nav.philosophy')}</a>
+		<a href="/#architecture">{t('nav.architecture')}</a>
+		<a href="/#quickstart">{t('nav.quickstart')}</a>
+		<a href="/showcase/">{t('nav.showcase')}</a>
+		<a href="/#links">{t('nav.links')}</a>
 		<button class="lang-btn" onclick={toggleLang}>
 			{getLocale() === 'zh' ? 'EN' : '中'}
 		</button>

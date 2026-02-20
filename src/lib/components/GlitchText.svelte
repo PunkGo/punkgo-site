@@ -15,18 +15,21 @@
 	let doneTyping = $state(false);
 
 	$effect(() => {
+		// Read text and typingSpeed synchronously so Svelte tracks them as dependencies
+		const currentText = text;
+		const speed = typingSpeed;
 		displayed = '';
 		doneTyping = false;
 		let i = 0;
 		const interval = setInterval(() => {
-			if (i < text.length) {
-				displayed = text.slice(0, i + 1);
+			if (i < currentText.length) {
+				displayed = currentText.slice(0, i + 1);
 				i++;
 			} else {
 				doneTyping = true;
 				clearInterval(interval);
 			}
-		}, typingSpeed);
+		}, speed);
 		return () => clearInterval(interval);
 	});
 </script>
@@ -34,7 +37,7 @@
 <span
 	class="glitch-wrap {className}"
 	class:glitch={doneTyping && glitchAfterTyping}
-	data-text={text}
+	data-text={displayed}
 >
 	{displayed}<span class="cursor" class:hidden={doneTyping}>_</span>
 </span>
