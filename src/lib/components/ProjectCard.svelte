@@ -4,6 +4,7 @@
 
 	let {
 		name,
+		nameKey,
 		classLabel,
 		status,
 		desc,
@@ -13,6 +14,7 @@
 		github
 	}: {
 		name: string;
+		nameKey: string;
 		classLabel: string;
 		status: string;
 		desc: string;
@@ -28,11 +30,9 @@
 	function flip(to: 'front' | 'back') {
 		if (transitioning) return;
 		transitioning = true;
-		// After the wipe covers the card, switch face
 		setTimeout(() => {
 			face = to;
 		}, 300);
-		// After the wipe reveals the new face, done
 		setTimeout(() => {
 			transitioning = false;
 		}, 600);
@@ -67,7 +67,7 @@
 			<p class="card-desc">{desc}</p>
 
 			<div class="card-flow">
-				<h4 class="flow-title">{t('showcase.watchdog.flow_title')}</h4>
+				<h4 class="flow-title">{t(`showcase.${nameKey}.flow_title`)}</h4>
 				<pre class="flow-art">{flowArt}</pre>
 			</div>
 
@@ -84,28 +84,34 @@
 				{/each}
 			</div>
 
-			<button class="nes-btn flip-btn" onclick={() => flip('back')}>
-				[ {t('showcase.watchdog.cmd_title')} &gt; ]
-			</button>
+			<div class="card-actions">
+				<a href={github} target="_blank" rel="noopener noreferrer" class="nes-btn is-success github-btn">
+					<i class="nes-icon github is-small"></i>
+					<span class="btn-text">{t(`showcase.${nameKey}.github`)}</span>
+				</a>
+				<button class="nes-btn flip-btn" onclick={() => flip('back')}>
+					[ {t(`showcase.${nameKey}.cmd_title`)} &gt; ]
+				</button>
+			</div>
 		</div>
 	{:else}
 		<!-- Back face -->
 		<div class="nes-container card-face">
 			<div class="card-header">
 				<h3 class="card-name">{name}</h3>
-				<span class="card-class">{t('showcase.watchdog.cmd_title')}</span>
+				<span class="card-class">{t(`showcase.${nameKey}.cmd_title`)}</span>
 			</div>
 
 			<div class="card-divider">{'═'.repeat(40)}</div>
 
 			<div class="cmd-area">
-				<TerminalBlock title="watchdog" code={commands} />
+				<TerminalBlock title={nameKey} code={commands} />
 			</div>
 
 			<div class="card-actions">
 				<a href={github} target="_blank" rel="noopener noreferrer" class="nes-btn is-success github-btn">
 					<i class="nes-icon github is-small"></i>
-					<span class="btn-text">{t('showcase.watchdog.github')}</span>
+					<span class="btn-text">{t(`showcase.${nameKey}.github`)}</span>
 				</a>
 				<button class="nes-btn flip-btn" onclick={() => flip('front')}>
 					[ &lt; BACK ]
@@ -118,7 +124,7 @@
 <style>
 	.card {
 		width: 100%;
-		max-width: 600px;
+		height: 100%;
 		position: relative;
 		overflow: hidden;
 	}
@@ -154,6 +160,7 @@
 		background: var(--bg-secondary);
 		display: flex;
 		flex-direction: column;
+		height: 100%;
 		box-shadow: 0 0 20px rgba(184, 41, 221, 0.15), inset 0 0 40px rgba(0, 0, 0, 0.3);
 		overflow: hidden;
 		padding: var(--space-md);
@@ -273,9 +280,15 @@
 		transition: width 0.8s steps(12);
 	}
 
-	.flip-btn.nes-btn {
+	.card-actions {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		margin-top: auto;
-		align-self: flex-end;
+		gap: var(--space-sm);
+	}
+
+	.flip-btn.nes-btn {
 		color: var(--neon-purple);
 		font-size: 8px;
 		padding: 6px 16px;
@@ -289,14 +302,6 @@
 	.cmd-area {
 		flex: 1;
 		margin-bottom: var(--space-sm);
-	}
-
-	.card-actions {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-top: auto;
-		gap: var(--space-sm);
 	}
 
 	.github-btn.nes-btn {

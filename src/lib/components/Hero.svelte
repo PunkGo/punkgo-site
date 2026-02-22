@@ -46,12 +46,12 @@
 	}
 
 	.question {
-		font-family: var(--font-cjk);
-		font-size: clamp(1.1rem, 3vw, 1.8rem);
+		font-family: var(--font-pixel);
+		font-size: min(2.2vw, 1.6rem);
 		color: var(--neon-pink);
-		max-width: 800px;
-		line-height: 1.6;
+		line-height: 1.8;
 		text-shadow: 0 0 20px rgba(255, 45, 149, 0.3);
+		white-space: pre-line;
 	}
 
 	.subtitle {
@@ -93,6 +93,12 @@
 		color: var(--text-dim);
 		text-transform: uppercase;
 		letter-spacing: 2px;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: var(--space-sm);
+		}
 	}
 
 	@keyframes float {

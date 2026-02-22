@@ -22,6 +22,7 @@
 		background: var(--bg-secondary);
 		color: var(--text-dim);
 		transition: color 0.2s, border-color 0.2s;
+		height: 100%;
 	}
 	.nes-container.card:hover {
 		color: var(--neon-green);

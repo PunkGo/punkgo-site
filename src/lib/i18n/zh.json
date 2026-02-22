@@ -1,13 +1,10 @@
 {
   "nav": {
-    "philosophy": "历史权",
-    "architecture": "架构",
-    "quickstart": "快速开始",
-    "showcase": "实验室",
-    "links": "链接"
+    "home": "首页",
+    "showcase": "实验室"
   },
   "hero": {
-    "question": "当AI替你做了一切，谁来证明你还存在？",
+    "question": "当AI替你做了一切，\n谁来证明你还存在？",
     "subtitle": "本地主权计算内核",
     "tagline": "你的历史，你来书写。",
     "scroll": "向下滚动"
@@ -81,13 +78,50 @@
       "stat_ipc": "IPC 协议",
       "cmd_title": "命令",
       "github": "GitHub"
+    },
+    "agent": {
+      "name": "AGENT",
+      "class": "操控者",
+      "status": "运行中",
+      "desc": "可审计的 LLM 代理体。每一次 AI 响应都以 SHA-256 哈希提交到内核的仅追加日志。Hold 规则拦截高风险操作等待人类审批。能量信封限制资源消耗。不只是运行 AI——而是证明它做了什么。",
+      "flow_title": "数据流",
+      "stat_audit": "审计追踪",
+      "stat_hold": "Hold 规则",
+      "stat_energy": "能量信封",
+      "stat_llm": "LLM 供应商",
+      "cmd_title": "命令",
+      "github": "GitHub"
     }
   },
-  "links": {
-    "title": "// 链接",
-    "github": "GitHub 仓库",
-    "whitepaper": "白皮书",
-    "pip001": "PIP-001: Action"
+  "whitepaper": {
+    "page_title": "白皮书",
+    "title": "// PunkGo 白皮书",
+    "epigraph": "当AI替你做了一切，谁来证明你还存在？",
+    "intro": "PunkGo 是一个本地主权计算内核：让个体在自己的硬件上拥有不可剥夺的历史写入权。",
+    "s1_title": "§1 权利",
+    "s1_term": "历史权（Right to History）— ",
+    "s1_body": "行动者以自身能量发起行动，将结果写入可验证的世界状态，留下不可抹除的痕迹。",
+    "s2_title": "§2 系统",
+    "s2_intro": "系统由三类原始对象构成：",
+    "s2_p_name": "行动者",
+    "s2_p_desc": "行动者（人或代理体）",
+    "s2_e_name": "能量",
+    "s2_e_desc": "能量，行动代价的统一计量",
+    "s2_s_name": "状态",
+    "s2_s_desc": "状态，全部可持久化现实与历史，包含\u201c历史如何被写入\u201d的可验证结构",
+    "s2_advance": "系统以行动推进，而非以时间推进：",
+    "s2_actions": "其中 A 是由 P 发起的原子行动：observe（读取）、create（创建）、mutate（变更）、execute（执行，必须封装为可记录输入/输出）。",
+    "s2_committer": "系统必须存在唯一的提交者（Committer）——结构角色，不是道德主体——负责将 Action 变为已提交事件，提供唯一线性化提交点。",
+    "s3_title": "§3 底线",
+    "s3_items": [
+      { "title": "唯一提交者", "desc": "同一历史域只有一个 commit authority" },
+      { "title": "全序日志", "desc": "已提交事件形成单一全序序列" },
+      { "title": "状态可重建", "desc": "S 可由事件重放导出" },
+      { "title": "语义仅追加", "desc": "已提交事件不可改写，纠错只靠追加补偿事件" },
+      { "title": "追加性可证明", "desc": "历史的追加性可被独立验证" },
+      { "title": "治理可审计", "desc": "治理规则与其变更进入事件历史" },
+      { "title": "证据可独立验证", "desc": "第三方可独立验证历史完整性" }
+    ]
   },
   "footer": {
     "license": "MIT License",

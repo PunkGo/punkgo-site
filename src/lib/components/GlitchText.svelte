@@ -46,6 +46,7 @@
 	.glitch-wrap {
 		position: relative;
 		display: inline-block;
+		white-space: pre-line;
 	}
 
 	.cursor {

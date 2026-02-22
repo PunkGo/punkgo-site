@@ -9,8 +9,6 @@
 </svelte:head>
 
 <section class="showcase">
-	<a href="/" class="nes-btn back-link">{t('showcase.back')}</a>
-
 	<pre class="divider">{DIVIDER}</pre>
 
 	<h1 class="section-title">{t('showcase.title')}</h1>
@@ -18,7 +16,51 @@
 
 	<div class="projects-grid">
 		<ProjectCard
+			name={t('showcase.agent.name')}
+			nameKey="agent"
+			classLabel={t('showcase.agent.class')}
+			status={t('showcase.agent.status')}
+			desc={t('showcase.agent.desc')}
+			flowArt={`  Prompt ──▶ LLM ──▶ Kernel Commit
+     │          │           │
+  [preamble] [tools]   [artifact_hash]
+     │          │       = sha256(resp)
+     ▼          ▼           ▼
+  context    shell_exec  append-only log
+  + session  write_file  + Merkle proof
+             read_file
+                 │
+           hold rule match?
+            yes ──▶ Human approve / reject`}
+			stats={[
+				{ label: t('showcase.agent.stat_audit'), level: 95 },
+				{ label: t('showcase.agent.stat_hold'), level: 80 },
+				{ label: t('showcase.agent.stat_energy'), level: 70 },
+				{ label: t('showcase.agent.stat_llm'), level: 90 }
+			]}
+			commands={`# Configure LLM provider
+punkgo-agent configure
+
+# Spawn an agent with energy budget
+punkgo-agent spawn --purpose "code review" \\
+  --energy 500
+
+# Run a prompt
+punkgo-agent run <agent-id> \\
+  "review src/main.rs for security issues"
+
+# Manage hold approvals
+punkgo-agent holds list
+punkgo-agent holds approve <hold-id>
+
+# Export audit trail with Merkle proofs
+punkgo-agent export <agent-id> --output audit.json`}
+			github="https://github.com/PunkGo/punkgo-agent"
+		/>
+
+		<ProjectCard
 			name={t('showcase.watchdog.name')}
+			nameKey="watchdog"
 			classLabel={t('showcase.watchdog.class')}
 			status={t('showcase.watchdog.status')}
 			desc={t('showcase.watchdog.desc')}
@@ -57,21 +99,9 @@ punkgo-watchdog export --output proof.json`}
 <style>
 	.showcase {
 		padding: var(--space-lg) var(--space-lg);
-		max-width: 1200px;
+		max-width: 1400px;
 		margin: 0 auto;
 		min-height: 100vh;
-	}
-
-	.nes-btn.back-link {
-		display: inline-block;
-		font-size: 10px;
-		color: var(--text-dim);
-		text-decoration: none;
-		letter-spacing: 2px;
-		margin-bottom: var(--space-md);
-	}
-	.nes-btn.back-link:hover:not([disabled]) {
-		color: var(--neon-green);
 	}
 
 	.divider {
@@ -102,9 +132,10 @@ punkgo-watchdog export --output proof.json`}
 
 	.projects-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 600px));
+		grid-template-columns: repeat(2, minmax(0, 600px));
 		gap: var(--space-lg);
 		justify-content: center;
+		align-items: stretch;
 	}
 
 	@media (max-width: 768px) {

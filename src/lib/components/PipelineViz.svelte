@@ -49,7 +49,7 @@
 <style>
 	.pipeline {
 		display: flex;
-		align-items: flex-start;
+		align-items: stretch;
 		gap: 4px;
 		overflow-x: auto;
 		padding: var(--space-sm) 0;
@@ -99,7 +99,7 @@
 		font-family: var(--font-terminal);
 		font-size: 1.2rem;
 		color: var(--text-dim);
-		align-self: center;
+		align-self: center !important;
 		opacity: 0.3;
 		transition: all 0.3s;
 		flex-shrink: 0;

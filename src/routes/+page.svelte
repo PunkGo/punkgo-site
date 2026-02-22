@@ -4,7 +4,6 @@
 	import Architecture from '$lib/components/Architecture.svelte';
 	import QuickStart from '$lib/components/QuickStart.svelte';
 	import ShowcaseEntry from '$lib/components/ShowcaseEntry.svelte';
-	import Links from '$lib/components/Links.svelte';
 </script>
 
 <svelte:head>
@@ -29,8 +28,4 @@
 
 <section id="showcase">
 	<ShowcaseEntry />
-</section>
-
-<section id="links">
-	<Links />
 </section>

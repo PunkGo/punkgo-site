@@ -19,7 +19,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
-		href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=ZCOOL+QingKe+HuangYou&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
 		rel="stylesheet"
 	/>
 	<link rel="icon" href="/favicon.ico" sizes="48x48" />

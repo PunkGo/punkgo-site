@@ -1,13 +1,10 @@
 {
   "nav": {
-    "philosophy": "RIGHT",
-    "architecture": "ARCH",
-    "quickstart": "START",
-    "showcase": "LAB",
-    "links": "LINKS"
+    "home": "HOME",
+    "showcase": "LAB"
   },
   "hero": {
-    "question": "When AI does everything for you, who proves you still exist?",
+    "question": "When AI does everything for you,\nwho proves you still exist?",
     "subtitle": "Local Sovereignty Compute Kernel",
     "tagline": "Your history. You write it.",
     "scroll": "scroll down"
@@ -81,13 +78,50 @@
       "stat_ipc": "IPC Protocol",
       "cmd_title": "COMMANDS",
       "github": "GitHub"
+    },
+    "agent": {
+      "name": "AGENT",
+      "class": "OPERATOR",
+      "status": "ACTIVE",
+      "desc": "Auditable LLM agent. Every AI response is committed to the kernel's append-only log with SHA-256 artifact hashes. Hold rules intercept high-risk actions for human approval. Energy envelopes cap resource consumption. Not just running AI \u2014 proving what it did.",
+      "flow_title": "DATA FLOW",
+      "stat_audit": "Audit Trail",
+      "stat_hold": "Hold Rules",
+      "stat_energy": "Energy Envelope",
+      "stat_llm": "LLM Providers",
+      "cmd_title": "COMMANDS",
+      "github": "GitHub"
     }
   },
-  "links": {
-    "title": "// Links",
-    "github": "GitHub Repo",
-    "whitepaper": "Whitepaper",
-    "pip001": "PIP-001: Action"
+  "whitepaper": {
+    "page_title": "Whitepaper",
+    "title": "// PunkGo Whitepaper",
+    "epigraph": "When AI does everything for you, who proves you still exist?",
+    "intro": "PunkGo is a local sovereignty compute kernel: giving individuals the inalienable right to write history on their own hardware.",
+    "s1_title": "§1 Rights",
+    "s1_term": "Right to History — ",
+    "s1_body": "An actor spends its own energy to initiate actions, commits results to verifiable world state, and leaves an indelible trace.",
+    "s2_title": "§2 System",
+    "s2_intro": "The system is composed of three primitive objects:",
+    "s2_p_name": "Actor",
+    "s2_p_desc": "An actor (human or agent)",
+    "s2_e_name": "Energy",
+    "s2_e_desc": "Energy, the universal cost metric for actions",
+    "s2_s_name": "State",
+    "s2_s_desc": "State, all persistent reality and history, including the verifiable structure of how history was written",
+    "s2_advance": "The system advances by action, not by time:",
+    "s2_actions": "Where A is an atomic action initiated by P: observe (read), create (create), mutate (modify), execute (execute, must be encapsulated with recordable input/output).",
+    "s2_committer": "The system MUST have a unique Committer \u2014 a structural role, not a moral authority \u2014 responsible for turning Actions into committed events, providing a single linearization commit point.",
+    "s3_title": "§3 Invariants",
+    "s3_items": [
+      { "title": "Single Committer", "desc": "A single history domain has exactly one commit authority" },
+      { "title": "Total Order Log", "desc": "Committed events form a single total-order sequence" },
+      { "title": "State Reconstructability", "desc": "S can be derived by replaying events" },
+      { "title": "Semantic Append-Only", "desc": "Committed events cannot be rewritten; corrections are made only by appending compensating events" },
+      { "title": "Provable Append-Only", "desc": "The append-only property of history can be independently verified" },
+      { "title": "Governance Auditable", "desc": "Governance rules and their changes enter the event history" },
+      { "title": "Evidence Independently Verifiable", "desc": "Third parties can independently verify history integrity" }
+    ]
   },
   "footer": {
     "license": "MIT License",
