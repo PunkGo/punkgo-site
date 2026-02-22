@@ -8,7 +8,7 @@
 	<div class="footer-content">
 		<span class="meta">{t('footer.license')} | v0.1.0 | 2026</span>
 		<span class="built">{t('footer.built')}</span>
-		<a href="/#hero" class="top-link">[^ TOP]</a>
+		<a href="#top" class="top-link" onclick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>[^ TOP]</a>
 	</div>
 </footer>
 
