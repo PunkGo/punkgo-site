@@ -1,42 +1,29 @@
-# sv
+# PunkGo Site
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Official website for the [PunkGo](https://github.com/PunkGo) project — a local-sovereignty compute kernel that guarantees the inalienable **Right to History**.
 
-## Creating a project
+**Live:** [punkgo.org](https://punkgo.org)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Stack
 
-```sh
-# create a new project
-npx sv create my-app
-```
+- [SvelteKit](https://svelte.dev) + TypeScript
+- [NES.css](https://nostalgic-css.github.io/NES.css/) (8-bit UI components)
+- Fonts: [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) + [ChillBitmap](https://github.com/Warren2060/ChillBitmap)
+- Static adapter, deployed via GitHub Pages
 
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv create --template minimal --types ts --no-install punkgo-site
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Development
 
 ```sh
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
+## Build
 
 ```sh
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## License
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+MIT
