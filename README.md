@@ -2,7 +2,7 @@
 
 Official website for the [PunkGo](https://github.com/PunkGo) project — a local-sovereignty compute kernel that guarantees the inalienable **Right to History**.
 
-**Live:** [punkgo.org](https://punkgo.org)
+**Live:** [punkgo.ai](https://punkgo.ai)
 
 ## Stack
 
