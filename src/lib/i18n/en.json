@@ -79,16 +79,16 @@
       "cmd_title": "COMMANDS",
       "github": "GitHub"
     },
-    "agent": {
-      "name": "AGENT",
-      "class": "OPERATOR",
+    "jack": {
+      "name": "JACK",
+      "class": "ADAPTER",
       "status": "ACTIVE",
-      "desc": "Auditable LLM agent. Every AI response is committed to the kernel's append-only log with SHA-256 artifact hashes. Hold rules intercept high-risk actions for human approval. Energy envelopes cap resource consumption. Not just running AI \u2014 proving what it did.",
+      "desc": "AI tool hook adapter. Every tool call from any AI coding assistant is automatically captured and committed to the kernel with a cryptographic receipt. Session tracking, energy accounting, and a terminal heatmap of your coding activity. Not just using AI \u2014 proving what it did.",
       "flow_title": "DATA FLOW",
-      "stat_audit": "Audit Trail",
-      "stat_hold": "Hold Rules",
-      "stat_energy": "Energy Envelope",
-      "stat_llm": "LLM Providers",
+      "stat_receipt": "Receipts",
+      "stat_session": "Session Tracking",
+      "stat_energy": "Energy Accounting",
+      "stat_hook": "Hook Integration",
       "cmd_title": "COMMANDS",
       "github": "GitHub"
     }

@@ -16,46 +16,39 @@
 
 	<div class="projects-grid">
 		<ProjectCard
-			name={t('showcase.agent.name')}
-			nameKey="agent"
-			classLabel={t('showcase.agent.class')}
-			status={t('showcase.agent.status')}
-			desc={t('showcase.agent.desc')}
-			flowArt={`  Prompt ──▶ LLM ──▶ Kernel Commit
-     │          │           │
-  [preamble] [tools]   [artifact_hash]
-     │          │       = sha256(resp)
-     ▼          ▼           ▼
-  context    shell_exec  append-only log
-  + session  write_file  + Merkle proof
-             read_file
-                 │
-           hold rule match?
-            yes ──▶ Human approve / reject`}
+			name={t('showcase.jack.name')}
+			nameKey="jack"
+			classLabel={t('showcase.jack.class')}
+			status={t('showcase.jack.status')}
+			desc={t('showcase.jack.desc')}
+			flowArt={`  AI Assistant ──▶ Hook ──▶ punkgo-jack ──▶ Kernel
+       │            │            │              │
+    [tool call]  [event]     [observe]     [7-step pipeline]
+       │            │            │              │
+       ▼            ▼            ▼              ▼
+    Bash/Read    stdin JSON   IPC submit    append-only log
+    Write/Edit   + metadata   (observe)     + Merkle proof
+                     │
+               session tracking
+               + energy accounting`}
 			stats={[
-				{ label: t('showcase.agent.stat_audit'), level: 95 },
-				{ label: t('showcase.agent.stat_hold'), level: 80 },
-				{ label: t('showcase.agent.stat_energy'), level: 70 },
-				{ label: t('showcase.agent.stat_llm'), level: 90 }
+				{ label: t('showcase.jack.stat_receipt'), level: 95 },
+				{ label: t('showcase.jack.stat_session'), level: 85 },
+				{ label: t('showcase.jack.stat_energy'), level: 70 },
+				{ label: t('showcase.jack.stat_hook'), level: 90 }
 			]}
-			commands={`# Configure LLM provider
-punkgo-agent configure
+			commands={`# Install hooks into Claude Code
+punkgo-jack setup claude-code
 
-# Spawn an agent with energy budget
-punkgo-agent spawn --purpose "code review" \\
-  --energy 500
+# View session activity heatmap
+punkgo-jack presence
 
-# Run a prompt
-punkgo-agent run <agent-id> \\
-  "review src/main.rs for security issues"
+# Toggle statusline
+punkgo-jack statusline on
 
-# Manage hold approvals
-punkgo-agent holds list
-punkgo-agent holds approve <hold-id>
-
-# Export audit trail with Merkle proofs
-punkgo-agent export <agent-id> --output audit.json`}
-			github="https://github.com/PunkGo/punkgo-agent"
+# Check kernel connection
+punkgo-jack health`}
+			github="https://github.com/PunkGo/punkgo-jack"
 		/>
 
 		<ProjectCard
