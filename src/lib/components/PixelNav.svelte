@@ -30,6 +30,7 @@
 		<a href="/" class:active={isActive('/')}>{t('nav.home')}</a>
 		<a href="/whitepaper/" class:active={isActive('/whitepaper')}>{t('whitepaper.page_title')}</a>
 		<a href="/showcase/" class:active={isActive('/showcase')}>{t('nav.showcase')}</a>
+		<a href="/blog/" class:active={isActive('/blog')}>{t('nav.blog')}</a>
 		<a href="https://github.com/PunkGo" target="_blank" rel="noopener noreferrer">GitHub</a>
 		<button class="nes-btn is-success lang-btn" onclick={toggleLang}>
 			{getLocale() === 'zh' ? 'EN' : '中'}

@@ -91,7 +91,7 @@
 	}
 
 	.link-icon {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.4rem;
 		flex-shrink: 0;
 	}

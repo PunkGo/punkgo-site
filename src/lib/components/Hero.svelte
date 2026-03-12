@@ -63,7 +63,7 @@
 	}
 
 	.tagline {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.2rem;
 		color: var(--text-dim);
 	}

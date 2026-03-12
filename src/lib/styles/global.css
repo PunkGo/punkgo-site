@@ -25,6 +25,9 @@
   --font-pixel: 'Press Start 2P', 'ChillBitmap', monospace;
   --font-terminal: 'VT323', 'ChillBitmap', monospace;
   --font-cjk: 'ChillBitmap', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+  --font-readable: 'JetBrains Mono', 'Noto Sans SC', 'Consolas', sans-serif;
+  --text-secondary: #aaa;
 
   --space-xs: 8px;
   --space-sm: 16px;
@@ -45,8 +48,8 @@ html {
   scroll-behavior: smooth;
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-terminal);
-  font-size: 18px;
+  font-family: var(--font-readable);
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

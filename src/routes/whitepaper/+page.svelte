@@ -94,7 +94,7 @@ E' = E - cost(A)</pre>
 	}
 
 	.epigraph {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.3rem;
 		color: var(--neon-pink);
 		border-left: 3px solid var(--neon-purple);
@@ -105,7 +105,7 @@ E' = E - cost(A)</pre>
 	}
 
 	.intro {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.15rem;
 		color: var(--text-primary);
 		line-height: 1.8;
@@ -123,7 +123,7 @@ E' = E - cost(A)</pre>
 	}
 
 	.wp-body {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.1rem;
 		color: var(--text-primary);
 		line-height: 1.8;
@@ -166,13 +166,13 @@ E' = E - cost(A)</pre>
 	}
 
 	.prim-desc {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1rem;
 		color: var(--text-dim);
 	}
 
 	.formula {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.2rem;
 		color: var(--neon-green);
 		text-shadow: 0 0 6px var(--pixel-shadow);
@@ -194,7 +194,7 @@ E' = E - cost(A)</pre>
 	}
 
 	.invariants-list li {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.1rem;
 		color: var(--text-primary);
 		line-height: 1.6;

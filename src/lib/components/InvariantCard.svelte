@@ -45,7 +45,7 @@
 	}
 
 	.desc {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1rem;
 		color: var(--text-primary);
 		line-height: 1.4;

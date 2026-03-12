@@ -1,7 +1,8 @@
 {
   "nav": {
     "home": "HOME",
-    "showcase": "LAB"
+    "showcase": "LAB",
+    "blog": "BLOG"
   },
   "hero": {
     "question": "When AI does everything for you,\nwho proves you still exist?",

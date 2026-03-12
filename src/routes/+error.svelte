@@ -48,14 +48,14 @@
 	}
 
 	.error-msg {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.2rem;
 		color: var(--text-dim);
 		margin-bottom: var(--space-sm);
 	}
 
 	.error-hint {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1rem;
 		color: var(--neon-green);
 		margin-bottom: var(--space-lg);

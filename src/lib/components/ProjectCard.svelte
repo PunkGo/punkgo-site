@@ -211,7 +211,7 @@
 	}
 
 	.card-divider {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		color: var(--neon-purple);
 		font-size: 0.7rem;
 		opacity: 0.4;
@@ -221,7 +221,7 @@
 	}
 
 	.card-desc {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.1rem;
 		color: var(--text-primary);
 		line-height: 1.6;
@@ -241,7 +241,7 @@
 	}
 
 	.flow-art {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1rem;
 		color: var(--neon-green);
 		line-height: 1.4;

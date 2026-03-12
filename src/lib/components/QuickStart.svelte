@@ -1,41 +1,33 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/index.svelte';
+	import { t, getLocale } from '$lib/i18n/index.svelte';
 	import TerminalBlock from './TerminalBlock.svelte';
 	import { DIVIDER } from '$lib/assets/ascii-art';
 
-	const buildCode = `# Clone the repo
-git clone https://github.com/PunkGo/punkgo-kernel.git
-cd punkgo-kernel
+	const installCode = `# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/PunkGo/punkgo-jack/main/install.sh | bash
 
-# Build
-cargo build --workspace
+# Windows (PowerShell)
+irm https://raw.githubusercontent.com/PunkGo/punkgo-jack/main/install.ps1 | iex
 
-# Run all tests
-cargo test --workspace`;
+# or with cargo
+cargo install punkgo-jack && cargo install punkgo-kernel`;
 
-	const kernelCode = `# Start the kernel daemon
-cargo run --bin punkgo-kerneld`;
+	const setupCode = `# Hook into Claude Code (one command, fully automatic)
+punkgo-jack setup claude-code
 
-	const cliCode = `# Check kernel health
-cargo run --bin punkgo-cli -- read health
+# That's it. Your next Claude Code session is already being recorded.`;
 
-# Create a new actor
-cargo run --bin punkgo-cli -- seed-actor alice --energy 5000
+	const queryCode = `# See what your AI agent did
+punkgo-jack history
 
-# Submit an action
-cargo run --bin punkgo-cli -- submit '{
-  "actor_id": "root",
-  "action_type": "mutate",
-  "target": "workspace/hello",
-  "payload": {"msg": "world"}
-}'
+# Verify a specific action's Merkle proof
+punkgo-jack show <event_id>
 
-# View recent events
-cargo run --bin punkgo-cli -- read events --limit 5
+# Session receipt with cryptographic proof
+punkgo-jack receipt
 
-# Query audit trail
-cargo run --bin punkgo-cli -- audit checkpoint
-cargo run --bin punkgo-cli -- audit proof 0`;
+# Activity heatmap
+punkgo-jack presence`;
 </script>
 
 <div class="quickstart">
@@ -43,9 +35,9 @@ cargo run --bin punkgo-cli -- audit proof 0`;
 
 	<h2 class="section-title">{t('quickstart.title')}</h2>
 
-	<TerminalBlock title={t('quickstart.build_title')} code={buildCode} />
-	<TerminalBlock title={t('quickstart.kernel_title')} code={kernelCode} />
-	<TerminalBlock title={t('quickstart.cli_title')} code={cliCode} />
+	<TerminalBlock title={getLocale() === 'zh' ? '安装' : 'Install'} code={installCode} />
+	<TerminalBlock title={getLocale() === 'zh' ? '接入 Claude Code' : 'Hook into Claude Code'} code={setupCode} />
+	<TerminalBlock title={getLocale() === 'zh' ? '查询与验证' : 'Query & Verify'} code={queryCode} />
 </div>
 
 <style>

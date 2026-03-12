@@ -47,7 +47,7 @@ punkgo-jack presence
 punkgo-jack statusline on
 
 # Check kernel connection
-punkgo-jack health`}
+punkgo-jack status`}
 			github="https://github.com/PunkGo/punkgo-jack"
 		/>
 
@@ -116,7 +116,7 @@ punkgo-watchdog export --output proof.json`}
 	}
 
 	.section-subtitle {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.2rem;
 		color: var(--text-dim);
 		margin-bottom: var(--space-lg);

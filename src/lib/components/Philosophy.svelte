@@ -60,7 +60,7 @@
 	}
 
 	.definition {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.2rem;
 		color: var(--text-primary);
 		line-height: 1.8;
@@ -102,7 +102,7 @@
 	}
 
 	.nes-container.pes-card p {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1rem;
 		color: var(--text-primary);
 		line-height: 1.5;
@@ -115,21 +115,21 @@
 		border-color: var(--neon-green) !important;
 	}
 	.nes-container.is-dark.formula-block code {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.3rem;
 		color: var(--neon-green);
 		text-shadow: 0 0 8px var(--pixel-shadow);
 	}
 
 	.principle {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.1rem;
 		color: var(--neon-yellow);
 		margin-bottom: var(--space-sm);
 	}
 
 	.committer {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1rem;
 		color: var(--text-dim);
 		font-style: italic;

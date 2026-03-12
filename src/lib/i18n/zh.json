@@ -1,7 +1,8 @@
 {
   "nav": {
     "home": "首页",
-    "showcase": "实验室"
+    "showcase": "实验室",
+    "blog": "博客"
   },
   "hero": {
     "question": "当AI替你做了一切，\n谁来证明你还存在？",

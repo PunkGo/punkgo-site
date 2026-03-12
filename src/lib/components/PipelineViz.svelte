@@ -85,7 +85,7 @@
 	}
 
 	.step-desc {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 0.85rem;
 		color: var(--text-dim);
 		text-align: center;
@@ -96,7 +96,7 @@
 	}
 
 	.arrow {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1.2rem;
 		color: var(--text-dim);
 		align-self: center !important;

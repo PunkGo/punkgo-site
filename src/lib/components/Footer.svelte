@@ -6,8 +6,15 @@
 <footer class="footer">
 	<pre class="divider">{DIVIDER_DOUBLE}</pre>
 	<div class="footer-content">
-		<span class="meta">{t('footer.license')} | v0.1.0 | 2026</span>
-		<span class="built">{t('footer.built')}</span>
+		<div class="footer-left">
+			<span class="meta">{t('footer.license')} | v0.2.2 | 2026</span>
+			<span class="built">{t('footer.built')}</span>
+		</div>
+		<div class="footer-links">
+			<a href="https://github.com/PunkGo" target="_blank" rel="noopener noreferrer">GitHub</a>
+			<a href="https://crates.io/crates/punkgo-jack" target="_blank" rel="noopener noreferrer">crates.io</a>
+			<a href="mailto:feijiu@punkgo.ai">feijiu@punkgo.ai</a>
+		</div>
 		<a href="#top" class="top-link" onclick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>[^ TOP]</a>
 	</div>
 </footer>
@@ -37,6 +44,12 @@
 		gap: var(--space-sm);
 	}
 
+	.footer-left {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
 	.meta {
 		font-family: var(--font-pixel);
 		font-size: 8px;
@@ -45,9 +58,24 @@
 	}
 
 	.built {
-		font-family: var(--font-terminal);
+		font-family: var(--font-readable);
 		font-size: 1rem;
 		color: var(--text-dim);
+	}
+
+	.footer-links {
+		display: flex;
+		gap: 20px;
+		font-family: var(--font-readable);
+		font-size: 1rem;
+	}
+
+	.footer-links a {
+		color: var(--text-dim);
+	}
+	.footer-links a:hover {
+		color: var(--neon-green);
+		text-shadow: 0 0 6px var(--pixel-shadow);
 	}
 
 	.top-link {
@@ -58,5 +86,12 @@
 	}
 	.top-link:hover {
 		color: var(--neon-pink);
+	}
+
+	@media (max-width: 768px) {
+		.footer-content {
+			flex-direction: column;
+			align-items: flex-start;
+		}
 	}
 </style>
