@@ -11,22 +11,25 @@ Two weeks ago I installed [punkgo-jack](https://github.com/PunkGo/punkgo-jack) a
 Today I ran `punkgo-jack presence` and saw this:
 
 ```
-  2/28 Sat                                                       0
-  3/1  Sun                                                       0
-  3/2  Mon                                                       5
-  3/3  Tue                                                     876
-  3/4  Wed                                                     184
-  3/5  Thu                                                   1,781
-  3/6  Fri                                                   2,801
-  3/7  Sat                                                   2,389
-  3/8  Sun                                                  10,684
-  3/9  Mon                                                   2,596
-  3/10 Tue                                                   1,684
-  3/11 Wed                                                       0
-  3/12 Thu                                                     443
-  3/13 Fri                                                   1,753
+  ⚡ punkgo-jack presence
 
-  ⚡25,196 energy · 24,264 actions · 1,011 decisions · 116 sessions
+  2/28 Sat  ░░░░░░░░░░░░░░░░░░░░░░░░      0
+  3/1  Sun  ░░░░░░░░░░░░░░░░░░░░░░░░      0
+  3/2  Mon  ░░░░░░░░░░░░░░░░░░░░░░░▒      5
+  3/3  Tue  ▒▒░░░░░░░░░░░░░░░░░░░▒▒▒    876
+  3/4  Wed  ▒░░░░░░░░░░░░░░░░░░░░░▒▒    184
+  3/5  Thu  ▒░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒  1,781
+  3/6  Fri  ▒░░░░░░░░░░▒▓▒▒▒▒▒▒▒▒▓▒▒  2,801
+  3/7  Sat  ▒░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▓  2,389
+  3/8  Sun  ▒▓▒░░░░░░░▒▒▒▓▓█▓█▓▒▓▓█▓ 10,684
+  3/9  Mon  ▓▒░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▓▓  2,596
+  3/10 Tue  ▓▒░░░░░░░░░▒▒▒▒▒▒▒▒░▒▒▒▒  1,684
+  3/11 Wed  ░░░░░░░░░░░░░░░░░░░░░░░░      0
+  3/12 Thu  ░░░░░░░░░░░░░░▒▒▒░░░░░░░    443
+  3/13 Fri  ░░░░░░░░░░░░░░▓▒▒▓▒░▒▒░░  1,753
+
+  ⚡25,196 energy · 24,264 actions · 1,011 decisions
+  116 sessions · peak 22:00 · 14 days
 ```
 
 25,000 energy spent across 24,000+ actions. Each one recorded in a local SQLite database. Each one hashed into a Merkle tree. Each one verifiable with a cryptographic proof — offline, without trusting anyone.
