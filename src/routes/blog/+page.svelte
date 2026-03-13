@@ -3,6 +3,18 @@
 
 	const posts = [
 		{
+			slug: 'i-audited-25000-ai-actions',
+			en: {
+				title: 'I Audited 25,000 AI Actions — Here\'s What I Found',
+				description: 'Two weeks, 116 sessions, and every tool call got a cryptographic receipt'
+			},
+			zh: {
+				title: '我审计了 25,000 次 AI 操作——发现了什么',
+				description: '两周，116 个 session，每次工具调用都有密码学回执'
+			},
+			date: '2026-03-13'
+		},
+		{
 			slug: 'hash-chains-vs-merkle-trees',
 			en: {
 				title: 'Hash Chains vs Merkle Trees',

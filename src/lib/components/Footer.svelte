@@ -7,7 +7,6 @@
 	<pre class="divider">{DIVIDER_DOUBLE}</pre>
 	<div class="footer-content">
 		<div class="footer-left">
-			<span class="meta">{t('footer.license')} | v0.2.2 | 2026</span>
 			<span class="built">{t('footer.built')}</span>
 		</div>
 		<div class="footer-links">

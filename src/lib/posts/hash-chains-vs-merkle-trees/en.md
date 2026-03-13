@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: "Hash Chains vs Merkle Trees"
-date: "2026-03-12"
+date: "2026-03-13"
 description: "Why most AI agent audit trails can't prove completeness"
 author: "Felix"
 ---

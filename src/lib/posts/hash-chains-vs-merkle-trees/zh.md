@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: "哈希链 vs Merkle 树"
-date: "2026-03-12"
+date: "2026-03-13"
 description: "为什么大多数 AI agent 审计方案无法证明完整性"
 author: "Felix"
 ---
