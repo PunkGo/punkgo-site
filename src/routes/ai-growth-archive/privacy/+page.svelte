@@ -144,8 +144,7 @@
 		<h2>Contact</h2>
 		<p>For privacy questions or data requests:</p>
 		<ul>
-			<li><strong>Email:</strong> <a href="mailto:privacy@punkgo.org">privacy@punkgo.org</a></li>
-			<li><strong>GitHub:</strong> <a href="https://github.com/PunkGo" target="_blank" rel="noopener noreferrer">github.com/PunkGo</a></li>
+			<li><strong>Email:</strong> <a href="mailto:contact-us@punkgo.ai">contact-us@punkgo.ai</a></li>
 		</ul>
 	</section>
 
