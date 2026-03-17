@@ -17,7 +17,7 @@
 		<p class="tagline">{t('hero.tagline')}</p>
 	</div>
 
-	<a href="#philosophy" class="scroll-hint" aria-label={t('hero.scroll')}>
+	<a href="#why" class="scroll-hint" aria-label={t('hero.scroll')}>
 		<pre class="arrow">{ARROW_DOWN}</pre>
 		<span class="scroll-text">{t('hero.scroll')}</span>
 	</a>

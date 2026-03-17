@@ -3,30 +3,20 @@
 	import TerminalBlock from './TerminalBlock.svelte';
 	import { DIVIDER } from '$lib/assets/ascii-art';
 
-	const installCode = `# macOS / Linux
+	const installCode = `# Two commands. That's it.
 curl -fsSL https://raw.githubusercontent.com/PunkGo/punkgo-jack/main/install.sh | bash
+punkgo-jack setup claude-code   # or: punkgo-jack setup cursor`;
 
-# Windows (PowerShell)
-irm https://raw.githubusercontent.com/PunkGo/punkgo-jack/main/install.ps1 | iex
-
-# or with cargo
-cargo install punkgo-jack && cargo install punkgo-kernel`;
-
-	const setupCode = `# Hook into Claude Code (one command, fully automatic)
-punkgo-jack setup claude-code
-
-# That's it. Your next Claude Code session is already being recorded.`;
-
-	const queryCode = `# See what your AI agent did
-punkgo-jack history
-
-# Verify a specific action's Merkle proof
-punkgo-jack show <event_id>
-
-# Session receipt with cryptographic proof
+	const verifyCode = `# Session receipt with anchor timestamp
 punkgo-jack receipt
 
-# Activity heatmap
+# Cryptographic proof for any event
+punkgo-jack verify <ID>
+
+# Full event history
+punkgo-jack history
+
+# Activity heatmap across agents
 punkgo-jack presence`;
 </script>
 
@@ -35,9 +25,8 @@ punkgo-jack presence`;
 
 	<h2 class="section-title">{t('quickstart.title')}</h2>
 
-	<TerminalBlock title={getLocale() === 'zh' ? '安装' : 'Install'} code={installCode} />
-	<TerminalBlock title={getLocale() === 'zh' ? '接入 Claude Code' : 'Hook into Claude Code'} code={setupCode} />
-	<TerminalBlock title={getLocale() === 'zh' ? '查询与验证' : 'Query & Verify'} code={queryCode} />
+	<TerminalBlock title={getLocale() === 'zh' ? '安装 + 接入' : 'Install + Hook'} code={installCode} />
+	<TerminalBlock title={getLocale() === 'zh' ? '验证与查询' : 'Verify & Query'} code={verifyCode} />
 </div>
 
 <style>

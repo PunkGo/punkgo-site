@@ -5,52 +5,33 @@
     "blog": "BLOG"
   },
   "hero": {
-    "question": "When AI does everything for you,\nwho proves you still exist?",
-    "subtitle": "Local Sovereignty Compute Kernel",
-    "tagline": "Your history. You write it.",
+    "question": "Your AI agent just mass-deleted\nyour production code.\nWho has the proof?",
+    "subtitle": "Every AI action gets a receipt.",
+    "tagline": "Dashcam for AI coding. Append-only, Ed25519-signed, RFC 3161 timestamped.",
     "scroll": "scroll down"
   },
-  "philosophy": {
-    "title": "// Right to History",
-    "definition": "The Right to History means: an actor spends their own energy to initiate an action, writes the outcome into verifiable world state, and leaves an indelible trace. This right is inalienable, non-delegable, and irrevocable.",
-    "p_title": "P \u2014 Actor",
-    "p_desc": "Human or Agent. Humans exist unconditionally; agents exist conditionally.",
-    "e_title": "E \u2014 Energy",
-    "e_desc": "Universal cost metric for actions. Anchored to hardware INT8 TOPS, not arbitrary tokens.",
-    "s_title": "S \u2014 State",
-    "s_desc": "All persistent reality and verifiable history. S' = f(S, A, E).",
-    "formula": "The system advances by action, not by time.",
-    "committer": "The system must have a single committer \u2014 a structural role, not a moral authority."
+  "why": {
+    "title": "// Why I built this",
+    "story": "I've been using Claude Code daily since January 2025. After 25,000+ AI actions, I realized I had zero proof of what actually happened. The AI's own logs? It can edit those. Git history? Doesn't capture the thinking process.",
+    "punchline": "I wanted something that works like a dashcam — always recording, can't be tampered with, and there when you need it.",
+    "audience": "If you use Claude Code or Cursor for client work, team projects, or anything where you need to show what your AI actually did — this is for you."
   },
-  "architecture": {
-    "title": "// Architecture",
-    "pipeline_title": "Seven-Step Submit Pipeline",
-    "steps": {
-      "validate": "Validate",
-      "validate_desc": "Check actor status, boundary permissions, action format",
-      "quote": "Quote",
-      "quote_desc": "Compute energy cost of the action",
-      "reserve": "Reserve",
-      "reserve_desc": "Lock energy from actor balance",
-      "execute": "Execute",
-      "execute_desc": "Run action (process backend / sandbox)",
-      "settle": "Settle",
-      "settle_desc": "Finalize energy accounting incl. I/O overhead",
-      "append": "Append",
-      "append_desc": "Write to append-only log + cryptographic hash",
-      "receipt": "Receipt",
-      "receipt_desc": "Return verifiable receipt (event ID + hash)"
-    },
-    "invariants_title": "Seven Invariants",
-    "invariants": [
-      { "title": "Single Committer", "desc": "One commit authority per history domain" },
-      { "title": "Total Order Log", "desc": "Committed events form a single total-order sequence" },
-      { "title": "State Reconstructability", "desc": "Current state derivable by replaying events" },
-      { "title": "Semantic Append-Only", "desc": "Committed events cannot be rewritten, only compensated" },
-      { "title": "Provable Append-Only", "desc": "Append-only property independently verifiable" },
-      { "title": "Governance Auditable", "desc": "Governance rules and changes enter event history" },
-      { "title": "Evidence Independently Verifiable", "desc": "Third parties can verify history integrity" }
-    ]
+  "trust": {
+    "title": "// Three Trust Layers",
+    "subtitle": "Each layer adds a guarantee the layer below cannot provide.",
+    "merkle_title": "Merkle Tree",
+    "merkle_desc": "Proves this event is in the tree, and the tree is append-only. RFC 6962.",
+    "ed25519_title": "Ed25519 Signature",
+    "ed25519_desc": "Proves this kernel instance signed this checkpoint. RFC 8032.",
+    "tsa_title": "TSA Timestamp",
+    "tsa_desc": "Proves this checkpoint existed before time T. You cannot backdate it. RFC 3161."
+  },
+  "tools": {
+    "title": "// Supported Tools",
+    "claude_code": "Claude Code — 10 hooks (tools, sessions, subagents, notifications) + statusline",
+    "cursor": "Cursor — 9 hooks (tools, sessions, subagents)",
+    "mcp": "MCP Server — 7 tools for agent self-query",
+    "planned": "Windsurf, Cline — planned"
   },
   "quickstart": {
     "title": "// Quick Start",

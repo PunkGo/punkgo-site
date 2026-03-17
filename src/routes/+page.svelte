@@ -1,29 +1,34 @@
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
-	import Philosophy from '$lib/components/Philosophy.svelte';
-	import Architecture from '$lib/components/Architecture.svelte';
+	import Why from '$lib/components/Why.svelte';
+	import TrustLayers from '$lib/components/TrustLayers.svelte';
 	import QuickStart from '$lib/components/QuickStart.svelte';
+	import SupportedTools from '$lib/components/SupportedTools.svelte';
 	import ShowcaseEntry from '$lib/components/ShowcaseEntry.svelte';
 </script>
 
 <svelte:head>
-	<title>PunkGo — Right to History</title>
+	<title>PunkGo — Every AI action gets a receipt</title>
 </svelte:head>
 
 <section id="hero">
 	<Hero />
 </section>
 
-<section id="philosophy">
-	<Philosophy />
-</section>
-
-<section id="architecture">
-	<Architecture />
+<section id="why">
+	<Why />
 </section>
 
 <section id="quickstart">
 	<QuickStart />
+</section>
+
+<section id="trust">
+	<TrustLayers />
+</section>
+
+<section id="tools">
+	<SupportedTools />
 </section>
 
 <section id="showcase">
