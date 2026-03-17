@@ -33,6 +33,41 @@
     "mcp": "MCP Server — 7 个工具供 agent 自查",
     "planned": "Windsurf, Cline — 计划中"
   },
+  "philosophy": {
+    "title": "// 历史权",
+    "definition": "历史权是指：行动者以自身能量发起行动，将结果写入可验证的世界状态，留下不可抹除的痕迹。",
+    "p_title": "P — 行动者",
+    "p_desc": "人或代理体。人的存在无条件；代理体的存在有条件。",
+    "e_title": "E — 能量",
+    "e_desc": "行动代价的统一计量。锚定硬件 INT8 TOPS，不是任意代币。",
+    "s_title": "S — 状态",
+    "s_desc": "全部可持久化现实与可验证历史结构。S' = f(S, A, E)。",
+    "formula": "系统以行动推进，而非以时间推进。",
+    "committer": "系统必须存在唯一的提交者——结构角色，不是道德主体。"
+  },
+  "architecture": {
+    "title": "// 架构",
+    "pipeline_title": "七步提交管线",
+    "steps": {
+      "validate": "验证", "validate_desc": "检查行动者状态、边界权限、行动格式",
+      "quote": "报价", "quote_desc": "计算行动的能量成本",
+      "reserve": "预留", "reserve_desc": "从行动者余额锁定能量",
+      "execute": "执行", "execute_desc": "运行行动（进程后端 / 沙箱）",
+      "settle": "结算", "settle_desc": "完成能量核算，含 I/O 开销",
+      "append": "追加", "append_desc": "写入仅追加日志 + 密码学哈希",
+      "receipt": "回执", "receipt_desc": "返回可验证回执（事件 ID + 哈希）"
+    },
+    "invariants_title": "七条底线",
+    "invariants": [
+      { "title": "唯一提交者", "desc": "同一历史域只有一个 commit authority" },
+      { "title": "全序日志", "desc": "已提交事件形成单一全序序列" },
+      { "title": "状态可重建", "desc": "当前状态可由事件重放导出" },
+      { "title": "语义仅追加", "desc": "已提交事件不可改写，只能追加补偿" },
+      { "title": "追加性可证明", "desc": "历史的仅追加性可被独立验证" },
+      { "title": "治理可审计", "desc": "治理规则与变更进入事件历史" },
+      { "title": "证据可独立验证", "desc": "第三方可独立验证历史完整性" }
+    ]
+  },
   "quickstart": {
     "title": "// 快速开始",
     "build_title": "构建与测试",
