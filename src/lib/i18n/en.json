@@ -2,6 +2,7 @@
   "nav": {
     "home": "HOME",
     "showcase": "LAB",
+    "roast": "ROAST",
     "blog": "BLOG"
   },
   "hero": {
@@ -139,6 +140,19 @@
       { "title": "Governance Auditable", "desc": "Governance rules and their changes enter the event history" },
       { "title": "Evidence Independently Verifiable", "desc": "Third parties can independently verify history integrity" }
     ]
+  },
+  "roast": {
+    "title": "What kind of dog is your AI?",
+    "subtitle": "PunkGo Roast analyzes your real AI coding sessions and tells you which of 16 dog personalities matches your style. No quiz. No self-report. Just your actual data.",
+    "cta": "Meet your dog",
+    "install_title": "Run it. See your dog.",
+    "install_note": "Takes 30 seconds. Nothing leaves your machine.",
+    "how_title": "How it works",
+    "step1": "Install PunkGo Jack\n(one command)",
+    "step2": "It reads your AI session history\n(local only)",
+    "step3": "You get your card.\nShare it or don't.",
+    "grid_title": "16 breeds. Which one are you?",
+    "brand_footer": "Roast is powered by {link} — a dashcam for AI coding."
   },
   "footer": {
     "license": "MIT License",

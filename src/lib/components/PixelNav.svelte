@@ -28,6 +28,7 @@
 	<a href="/" class="brand">PunkGo</a>
 	<div class="nav-links">
 		<a href="/" class:active={isActive('/')}>{t('nav.home')}</a>
+		<a href="/roast/" class="roast-link" class:active={isActive('/roast')}>{t('nav.roast')}</a>
 		<a href="/whitepaper/" class:active={isActive('/whitepaper')}>{t('whitepaper.page_title')}</a>
 		<a href="/showcase/" class:active={isActive('/showcase')}>{t('nav.showcase')}</a>
 		<a href="/blog/" class:active={isActive('/blog')}>{t('nav.blog')}</a>
@@ -90,6 +91,14 @@
 	.nav-links a.active {
 		color: var(--neon-green);
 		text-shadow: 0 0 8px var(--pixel-shadow);
+	}
+	.nav-links a.roast-link {
+		color: var(--neon-pink);
+	}
+	.nav-links a.roast-link:hover,
+	.nav-links a.roast-link.active {
+		color: var(--neon-pink);
+		text-shadow: 0 0 8px var(--neon-pink);
 	}
 
 	/* Chinese ChillBitmap is visually smaller than Press Start 2P at same font-size */

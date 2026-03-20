@@ -2,6 +2,7 @@
   "nav": {
     "home": "首页",
     "showcase": "实验室",
+    "roast": "ROAST",
     "blog": "博客"
   },
   "hero": {
@@ -139,6 +140,19 @@
       { "title": "治理可审计", "desc": "治理规则与其变更进入事件历史" },
       { "title": "证据可独立验证", "desc": "第三方可独立验证历史完整性" }
     ]
+  },
+  "roast": {
+    "title": "你的 AI 是哪种狗？",
+    "subtitle": "PunkGo Roast 分析你真实的 AI 编码数据，告诉你的 AI 属于 16 种狗子人格中的哪一种。没有问卷，不靠自评，只看数据。",
+    "cta": "看看你的狗子",
+    "install_title": "跑一下，看看你的狗子",
+    "install_note": "30 秒搞定，数据不出本机。",
+    "how_title": "怎么用",
+    "step1": "安装 PunkGo Jack\n（一行命令）",
+    "step2": "读取你的 AI 使用记录\n（纯本地）",
+    "step3": "拿到你的卡片。\n发不发随你。",
+    "grid_title": "16 种狗子，你是哪只？",
+    "brand_footer": "Roast 由 {link} 驱动 — AI 编码的行车记录仪。"
   },
   "footer": {
     "license": "MIT License",
