@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-vercel';
 import { mdsvex } from 'mdsvex';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -18,11 +18,7 @@ const config = {
 	],
 	kit: {
 		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: '404.html',
-			precompress: false,
-			strict: true
+			runtime: 'nodejs22.x',
 		})
 	}
 };
