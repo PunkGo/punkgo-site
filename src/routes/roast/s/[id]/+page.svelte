@@ -37,7 +37,7 @@
 		try {
 			// Server-side PNG: no canvas, no CORS, no taint — just download
 			const pngUrl = `${API_BASE}/api/v1/roast/share/${share?.id}/card.png`;
-			const res = await fetch(pngUrl, { cache: 'no-cache' });
+			const res = await fetch(pngUrl);
 			if (!res.ok) throw new Error('png fetch failed');
 			const blob = await res.blob();
 			const blobUrl = URL.createObjectURL(blob);
