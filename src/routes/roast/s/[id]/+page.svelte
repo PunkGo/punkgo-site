@@ -8,16 +8,22 @@
 	let share = $derived(data.share);
 	let phase = $state<'loading' | 'flip' | 'result'>('loading');
 	let flipped = $state(false);
+	let shaking = $state(false);
+	let ready = $state(false);
 	let copied = $state(false);
+	let saveFailed = $state(false);
 
 	onMount(() => {
 		if (share) {
 			phase = 'flip';
+			// Sequence: glow (1s) → shake (1.2s) → ready
+			setTimeout(() => { shaking = true; }, 1000);
+			setTimeout(() => { shaking = false; ready = true; }, 2200);
 		}
 	});
 
 	function flip() {
-		if (flipped) return;
+		if (flipped || !ready) return;
 		flipped = true;
 		setTimeout(() => (phase = 'result'), 700);
 	}
@@ -29,26 +35,47 @@
 
 	async function downloadPng() {
 		try {
-			const res = await fetch(getCardSvgUrl());
+			// Fetch SVG text, inline all content, render via canvas
+			const url = getCardSvgUrl();
+			const res = await fetch(url);
+			if (!res.ok) throw new Error('fetch failed');
 			const svgText = await res.text();
-			const blob = new Blob([svgText], { type: 'image/svg+xml' });
+
+			// Create blob URL from SVG text
+			const blob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
 			const blobUrl = URL.createObjectURL(blob);
-			const img = new Image();
+
+			const img = new Image(800, 1040);
 			img.src = blobUrl;
-			await new Promise((resolve, reject) => {
-				img.onload = resolve;
-				img.onerror = reject;
+
+			await new Promise<void>((resolve, reject) => {
+				img.onload = () => resolve();
+				img.onerror = () => reject(new Error('img load failed'));
 			});
+
 			const canvas = document.createElement('canvas');
 			canvas.width = 800;
 			canvas.height = 1040;
-			canvas.getContext('2d')!.drawImage(img, 0, 0, 800, 1040);
+			const ctx = canvas.getContext('2d');
+			if (!ctx) throw new Error('no canvas context');
+			ctx.drawImage(img, 0, 0, 800, 1040);
 			URL.revokeObjectURL(blobUrl);
-			const link = document.createElement('a');
-			link.download = `punkgo-roast-${share?.personality_id || 'card'}.png`;
-			link.href = canvas.toDataURL('image/png');
-			link.click();
-		} catch {}
+
+			// Try canvas export — may fail if SVG has external refs
+			try {
+				const dataUrl = canvas.toDataURL('image/png');
+				const link = document.createElement('a');
+				link.download = `punkgo-roast-${share?.personality_id || 'card'}.png`;
+				link.href = dataUrl;
+				link.click();
+			} catch {
+				// Canvas tainted — fallback: open SVG in new tab for manual save
+				window.open(url, '_blank');
+			}
+		} catch {
+			saveFailed = true;
+			setTimeout(() => saveFailed = false, 3000);
+		}
 	}
 
 	function copyLink() {
@@ -96,8 +123,9 @@
 			tabindex="0"
 			onkeydown={(e) => e.key === 'Enter' && flip()}
 		>
-			<div class="card" class:flipped>
+			<div class="card" class:flipped class:shaking class:ready>
 				<div class="card-back">
+					<div class="paw">🐾</div>
 					<div class="brand">PUNKGO<br />ROAST</div>
 					<div class="question">?</div>
 				</div>
@@ -105,7 +133,9 @@
 					<img src={getCardSvgUrl()} alt={share.personality_name} width="400" height="520" />
 				</div>
 			</div>
-			<p class="hint">{share.locale === 'zh' ? '点击揭晓' : 'Click to reveal'}</p>
+			{#if !flipped}
+				<p class="hint">{ready ? (share.locale === 'zh' ? '点击揭晓' : 'Click to reveal') : '...'}</p>
+			{/if}
 		</div>
 	{:else if phase === 'result' && share}
 		<div class="result-phase">
@@ -119,7 +149,7 @@
 
 			<div class="actions">
 				<button class="save-btn" onclick={downloadPng}>
-					{share.locale === 'zh' ? '保存图片' : 'Save PNG'}
+					{saveFailed ? (share.locale === 'zh' ? '保存失败，点击打开SVG' : 'Failed — open SVG') : (share.locale === 'zh' ? '保存图片' : 'Save PNG')}
 				</button>
 				<button class="share-btn" onclick={copyLink}>
 					{copied
@@ -198,20 +228,27 @@
 	.card-back {
 		background: #111;
 		border: 2px solid rgba(57, 255, 20, 0.4);
-		box-shadow: 0 0 30px rgba(57, 255, 20, 0.3);
-		animation: glowPulse 1.2s ease-in-out infinite;
-		gap: 16px;
+		box-shadow: 0 0 20px rgba(57, 255, 20, 0.3), 0 0 60px rgba(57, 255, 20, 0.15);
+		animation: glowPulse 1.5s ease-in-out 2;
+		gap: 12px;
 	}
+	.card.shaking { animation: wiggle 0.4s ease-in-out 3; }
+	.card.ready .card-back {
+		animation: none;
+		box-shadow: 0 0 30px rgba(57, 255, 20, 0.5);
+		border-color: rgba(57, 255, 20, 0.6);
+	}
+	.paw { font-size: 48px; opacity: 0.3; }
 	.brand {
 		color: #2a2a2a;
-		font-size: 28px;
+		font-size: 24px;
 		font-weight: 700;
 		text-align: center;
 		line-height: 1.1;
 	}
 	.question {
 		color: #333;
-		font-size: 72px;
+		font-size: 64px;
 		font-weight: 700;
 	}
 	.card-front {
@@ -227,12 +264,13 @@
 		font-size: 18px;
 		font-weight: 600;
 		margin-top: 24px;
+		letter-spacing: 2px;
+		text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
 		animation: pulse 1.5s ease-in-out infinite;
 	}
 
 	@keyframes glowPulse {
-		0%,
-		100% {
+		0%, 100% {
 			box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
 			border-color: rgba(57, 255, 20, 0.4);
 		}
@@ -241,14 +279,18 @@
 			border-color: rgba(57, 255, 20, 0.7);
 		}
 	}
+	@keyframes wiggle {
+		0%   { transform: translate(0, 0) rotate(0deg); }
+		15%  { transform: translate(-3px, 0) rotate(-2deg); }
+		30%  { transform: translate(3px, 0) rotate(2deg); }
+		45%  { transform: translate(-3px, 0) rotate(-1.5deg); }
+		60%  { transform: translate(3px, 0) rotate(1.5deg); }
+		75%  { transform: translate(-1px, 0) rotate(-1deg); }
+		100% { transform: translate(0, 0) rotate(0deg); }
+	}
 	@keyframes pulse {
-		0%,
-		100% {
-			opacity: 0.5;
-		}
-		50% {
-			opacity: 1;
-		}
+		0%, 100% { opacity: 0.5; }
+		50% { opacity: 1; }
 	}
 
 	/* Result */
