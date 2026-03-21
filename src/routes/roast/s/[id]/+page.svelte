@@ -34,42 +34,47 @@
 	}
 
 	async function downloadPng() {
+		const url = getCardSvgUrl();
 		try {
-			const url = getCardSvgUrl();
+			// Fetch SVG → blob URL (same-origin) → <a download> works
+			const res = await fetch(url);
+			if (!res.ok) throw new Error('fetch');
+			const svgText = await res.text();
 
-			// Method 1: crossOrigin img (works on web with CORS *)
+			// Try canvas PNG export via data URL (avoids CORS taint)
+			const dataUrl = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgText)));
 			const img = new Image();
-			img.crossOrigin = 'anonymous';
-			img.src = url;
-
+			img.src = dataUrl;
 			await new Promise<void>((resolve, reject) => {
 				img.onload = () => resolve();
-				img.onerror = () => reject(new Error('img load'));
+				img.onerror = () => reject(new Error('img'));
 			});
 
 			const canvas = document.createElement('canvas');
 			canvas.width = 800;
 			canvas.height = 1040;
-			const ctx = canvas.getContext('2d')!;
-			ctx.drawImage(img, 0, 0, 800, 1040);
+			canvas.getContext('2d')!.drawImage(img, 0, 0, 800, 1040);
+			const pngUrl = canvas.toDataURL('image/png');
 
-			const dataUrl = canvas.toDataURL('image/png');
-			const link = document.createElement('a');
-			link.download = `punkgo-roast-${share?.personality_id || 'card'}.png`;
-			link.href = dataUrl;
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
+			const a = document.createElement('a');
+			a.href = pngUrl;
+			a.download = `punkgo-roast-${share?.personality_id || 'card'}.png`;
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
 		} catch {
-			// Fallback: download SVG directly
+			// Fallback: download SVG via blob URL (cross-origin <a download> needs blob)
 			try {
-				const url = getCardSvgUrl();
-				const link = document.createElement('a');
-				link.download = `punkgo-roast-${share?.personality_id || 'card'}.svg`;
-				link.href = url;
-				document.body.appendChild(link);
-				link.click();
-				document.body.removeChild(link);
+				const res = await fetch(url);
+				const blob = await res.blob();
+				const blobUrl = URL.createObjectURL(blob);
+				const a = document.createElement('a');
+				a.href = blobUrl;
+				a.download = `punkgo-roast-${share?.personality_id || 'card'}.svg`;
+				document.body.appendChild(a);
+				a.click();
+				document.body.removeChild(a);
+				URL.revokeObjectURL(blobUrl);
 			} catch {
 				saveFailed = true;
 				setTimeout(() => saveFailed = false, 3000);
