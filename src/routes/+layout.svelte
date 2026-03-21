@@ -4,9 +4,14 @@
 	import ScanlineOverlay from '$lib/components/ScanlineOverlay.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { initLocale } from '$lib/i18n/index.svelte';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import 'nes.css/css/nes-core.min.css';
 	import '$lib/styles/global.css';
 	import '$lib/styles/animations.css';
+
+	injectAnalytics();
+	injectSpeedInsights();
 
 	let { children }: { children: Snippet } = $props();
 
