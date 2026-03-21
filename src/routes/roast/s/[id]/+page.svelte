@@ -34,51 +34,23 @@
 	}
 
 	async function downloadPng() {
-		const url = getCardSvgUrl();
 		try {
-			// Fetch SVG → blob URL (same-origin) → <a download> works
-			const res = await fetch(url);
-			if (!res.ok) throw new Error('fetch');
-			const svgText = await res.text();
-
-			// Try canvas PNG export via data URL (avoids CORS taint)
-			const dataUrl = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgText)));
-			const img = new Image();
-			img.src = dataUrl;
-			await new Promise<void>((resolve, reject) => {
-				img.onload = () => resolve();
-				img.onerror = () => reject(new Error('img'));
-			});
-
-			const canvas = document.createElement('canvas');
-			canvas.width = 800;
-			canvas.height = 1040;
-			canvas.getContext('2d')!.drawImage(img, 0, 0, 800, 1040);
-			const pngUrl = canvas.toDataURL('image/png');
-
+			// Server-side PNG: no canvas, no CORS, no taint — just download
+			const pngUrl = `${API_BASE}/api/v1/roast/share/${share?.id}/card.png`;
+			const res = await fetch(pngUrl);
+			if (!res.ok) throw new Error('png fetch failed');
+			const blob = await res.blob();
+			const blobUrl = URL.createObjectURL(blob);
 			const a = document.createElement('a');
-			a.href = pngUrl;
+			a.href = blobUrl;
 			a.download = `punkgo-roast-${share?.personality_id || 'card'}.png`;
 			document.body.appendChild(a);
 			a.click();
 			document.body.removeChild(a);
+			URL.revokeObjectURL(blobUrl);
 		} catch {
-			// Fallback: download SVG via blob URL (cross-origin <a download> needs blob)
-			try {
-				const res = await fetch(url);
-				const blob = await res.blob();
-				const blobUrl = URL.createObjectURL(blob);
-				const a = document.createElement('a');
-				a.href = blobUrl;
-				a.download = `punkgo-roast-${share?.personality_id || 'card'}.svg`;
-				document.body.appendChild(a);
-				a.click();
-				document.body.removeChild(a);
-				URL.revokeObjectURL(blobUrl);
-			} catch {
-				saveFailed = true;
-				setTimeout(() => saveFailed = false, 3000);
-			}
+			saveFailed = true;
+			setTimeout(() => saveFailed = false, 3000);
 		}
 	}
 
