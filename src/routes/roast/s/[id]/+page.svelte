@@ -35,46 +35,45 @@
 
 	async function downloadPng() {
 		try {
-			// Fetch SVG text, inline all content, render via canvas
 			const url = getCardSvgUrl();
-			const res = await fetch(url);
-			if (!res.ok) throw new Error('fetch failed');
-			const svgText = await res.text();
 
-			// Create blob URL from SVG text
-			const blob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
-			const blobUrl = URL.createObjectURL(blob);
-
-			const img = new Image(800, 1040);
-			img.src = blobUrl;
+			// Method 1: crossOrigin img (works on web with CORS *)
+			const img = new Image();
+			img.crossOrigin = 'anonymous';
+			img.src = url;
 
 			await new Promise<void>((resolve, reject) => {
 				img.onload = () => resolve();
-				img.onerror = () => reject(new Error('img load failed'));
+				img.onerror = () => reject(new Error('img load'));
 			});
 
 			const canvas = document.createElement('canvas');
 			canvas.width = 800;
 			canvas.height = 1040;
-			const ctx = canvas.getContext('2d');
-			if (!ctx) throw new Error('no canvas context');
+			const ctx = canvas.getContext('2d')!;
 			ctx.drawImage(img, 0, 0, 800, 1040);
-			URL.revokeObjectURL(blobUrl);
 
-			// Try canvas export — may fail if SVG has external refs
-			try {
-				const dataUrl = canvas.toDataURL('image/png');
-				const link = document.createElement('a');
-				link.download = `punkgo-roast-${share?.personality_id || 'card'}.png`;
-				link.href = dataUrl;
-				link.click();
-			} catch {
-				// Canvas tainted — fallback: open SVG in new tab for manual save
-				window.open(url, '_blank');
-			}
+			const dataUrl = canvas.toDataURL('image/png');
+			const link = document.createElement('a');
+			link.download = `punkgo-roast-${share?.personality_id || 'card'}.png`;
+			link.href = dataUrl;
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
 		} catch {
-			saveFailed = true;
-			setTimeout(() => saveFailed = false, 3000);
+			// Fallback: download SVG directly
+			try {
+				const url = getCardSvgUrl();
+				const link = document.createElement('a');
+				link.download = `punkgo-roast-${share?.personality_id || 'card'}.svg`;
+				link.href = url;
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+			} catch {
+				saveFailed = true;
+				setTimeout(() => saveFailed = false, 3000);
+			}
 		}
 	}
 
