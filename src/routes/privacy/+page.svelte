@@ -152,7 +152,7 @@
 	<section>
 		<h2>11. Contact</h2>
 		<p>
-			Questions or deletion requests: <a href="mailto:hello@punkgo.ai">hello@punkgo.ai</a>
+			Questions or deletion requests: <a href="mailto:contact-us@punkgo.ai">contact-us@punkgo.ai</a>
 		</p>
 	</section>
 
@@ -202,7 +202,7 @@
 
 		<h3>联系方式</h3>
 		<p>
-			如有疑问或删除请求: <a href="mailto:hello@punkgo.ai">hello@punkgo.ai</a>
+			如有疑问或删除请求: <a href="mailto:contact-us@punkgo.ai">contact-us@punkgo.ai</a>
 		</p>
 	</section>
 </article>
