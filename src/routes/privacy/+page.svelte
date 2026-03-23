@@ -1,9 +1,7 @@
 <svelte:head>
 	<title>Privacy Policy — PunkGo Roast</title>
 	<meta name="description" content="Privacy policy for the PunkGo Roast Chrome extension." />
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
-	</style>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
 </svelte:head>
 
 <article class="privacy">

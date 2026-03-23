@@ -12,7 +12,7 @@
 		<div class="footer-links">
 			<a href="https://github.com/PunkGo" target="_blank" rel="noopener noreferrer">GitHub</a>
 			<a href="https://crates.io/crates/punkgo-jack" target="_blank" rel="noopener noreferrer">crates.io</a>
-			<a href="mailto:feijiu@punkgo.ai">feijiu@punkgo.ai</a>
+			<a href="mailto:contact-us@punkgo.ai">contact-us@punkgo.ai</a>
 		</div>
 		<a href="#top" class="top-link" onclick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>[^ TOP]</a>
 	</div>

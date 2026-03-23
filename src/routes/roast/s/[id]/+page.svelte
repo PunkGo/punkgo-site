@@ -81,7 +81,7 @@
 			property="og:description"
 			content="我的AI是{share.personality_name_zh || share.personality_name}。你的呢？"
 		/>
-		<meta property="og:image" content="{API_BASE}/api/v1/roast/share/{share.id}/card" />
+		<meta property="og:image" content="{API_BASE}/api/v1/roast/share/{share.id}/card.png" />
 		<meta property="og:url" content="https://punkgo.ai/roast/s/{share.id}" />
 		<meta name="twitter:card" content="summary_large_image" />
 	{/if}
@@ -139,7 +139,7 @@
 			</div>
 
 			<div class="cta">
-				<h2>{share.locale === 'zh' ? '你的 AI 是什么狗？' : 'What kind of dog is your AI?'}</h2>
+				<h2>{share.locale === 'zh' ? '你的 AI 是什么 vibe？' : "What's your AI vibe?"}</h2>
 				<p>
 					{share.locale === 'zh'
 						? '分析你的 AI 聊天记录，找到你的 MBTI 狗子'
@@ -147,7 +147,8 @@
 				</p>
 				<a
 					class="install-btn"
-					href="https://chromewebstore.google.com/detail/punkgo-roast"
+					href="https://github.com/PunkGo/punkgo-roast-extension"
+				<!-- TODO: Replace with real Chrome Web Store URL after approval -->
 					target="_blank"
 				>
 					{share.locale === 'zh' ? '安装插件' : 'Install Extension'}

@@ -30,8 +30,8 @@
 </script>
 
 <svelte:head>
-	<title>PunkGo Roast — What kind of dog is your AI?</title>
-	<meta property="og:title" content="What kind of dog is your AI?" />
+	<title>PunkGo Roast — What's your AI vibe?</title>
+	<meta property="og:title" content="What's your AI vibe?" />
 	<meta property="og:description" content="AI personality diagnosis based on your real coding data. 16 dog breeds. No quiz." />
 	<meta property="og:image" content="https://punkgo.ai/roast/og-image.png" />
 	<meta property="og:url" content="https://punkgo.ai/roast/" />
@@ -52,11 +52,18 @@
 		<img src="/roast/example-card.svg" alt="Example roast card" class="example-card" />
 	</section>
 
-	<!-- Install -->
+	<!-- Install Extension -->
 	<section class="install-section" id="install">
-		<h2>{t('roast.install_title')}</h2>
-		<div class="install-cmd">curl -fsSL https://raw.githubusercontent.com/PunkGo/punkgo-jack/main/install.sh | bash && punkgo-jack roast</div>
-		<p class="install-note">{t('roast.install_note')}</p>
+		<!-- TODO: Replace href with real Chrome Web Store URL after approval -->
+		<a class="install-ext-btn" href="https://github.com/PunkGo/punkgo-roast-extension" target="_blank">
+			{lang === 'zh' ? '安装 Chrome 扩展 — 免费' : 'Install Chrome Extension — Free'}
+		</a>
+		<p class="install-platforms">{lang === 'zh' ? '支持 ChatGPT · DeepSeek · Kimi · 豆包' : 'Works with ChatGPT · DeepSeek · Kimi · Doubao'}</p>
+
+		<details class="cli-alt">
+			<summary>{lang === 'zh' ? '或者用 CLI（开发者）' : 'Or use CLI (developers)'}</summary>
+			<div class="install-cmd">curl -fsSL https://raw.githubusercontent.com/PunkGo/punkgo-jack/main/install.sh | bash && punkgo-jack roast</div>
+		</details>
 	</section>
 
 	<!-- How it works -->
@@ -162,17 +169,48 @@
 		color: #e0e0e0;
 		margin-bottom: 24px;
 	}
+	.install-ext-btn {
+		display: inline-block;
+		padding: 16px 48px;
+		background: #39ff14;
+		color: #000;
+		font-size: 18px;
+		font-weight: 700;
+		border-radius: 12px;
+		text-decoration: none;
+		margin-bottom: 12px;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+	}
+	.install-ext-btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+	}
+	.install-platforms {
+		color: #888;
+		font-size: 14px;
+		margin-bottom: 24px;
+	}
+	.cli-alt {
+		color: #555;
+		font-size: 13px;
+		cursor: pointer;
+	}
+	.cli-alt summary {
+		color: #666;
+		margin-bottom: 8px;
+	}
 	.install-cmd {
 		font-family: 'JetBrains Mono', monospace;
-		font-size: 14px;
+		font-size: 13px;
 		color: #39ff14;
 		background: #0a0a0a;
-		padding: 16px 24px;
+		padding: 12px 20px;
 		border-radius: 8px;
 		display: inline-block;
-		margin-bottom: 16px;
 		border: 1px solid #333;
 		user-select: all;
+		overflow-x: auto;
+		max-width: 100%;
 	}
 	.install-note {
 		font-size: 14px;

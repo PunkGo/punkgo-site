@@ -30,12 +30,14 @@
 	<link rel="icon" href="/favicon.ico" sizes="48x48" />
 	<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
 	<link rel="apple-touch-icon" href="/icon-192.png" />
-	<meta property="og:title" content="PunkGo — Every AI action gets a receipt" />
-	<meta property="og:image" content="https://punkgo.ai/icon-192.png" />
-	<meta property="og:description" content="Dashcam for AI coding. Append-only audit trail with Ed25519 signatures and RFC 3161 timestamps for Claude Code and Cursor." />
+	<meta property="og:title" content="PunkGo Roast — What's your AI vibe?" />
+	<meta property="og:image" content="https://punkgo.ai/roast/og-image.png" />
+	<meta property="og:description" content="16 MBTI dog breed personalities for your AI. Meme radar, shareable cards, 100% local analysis. Works with ChatGPT, DeepSeek, Kimi & Doubao." />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://punkgo.ai" />
-	<meta name="description" content="PunkGo — dashcam for AI coding. Every tool call gets a cryptographic receipt. Supports Claude Code, Cursor, MCP. Built with Rust." />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://punkgo.ai/roast/og-image.png" />
+	<meta name="description" content="What's your AI vibe? 16 MBTI dog breed personalities for your AI chat history. Meme radar, shareable cards. Free Chrome extension." />
 	<meta name="theme-color" content="#0a0a0a" />
 </svelte:head>
 
