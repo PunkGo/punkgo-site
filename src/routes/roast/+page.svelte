@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { t } from '$lib/i18n/index.svelte';
+	import { t, getLocale } from '$lib/i18n/index.svelte';
+	const isZh = $derived(getLocale() === 'zh');
 
 	interface Dog {
 		name: string;
@@ -56,12 +57,12 @@
 	<section class="install-section" id="install">
 		<!-- TODO: Replace href with real Chrome Web Store URL after approval -->
 		<a class="install-ext-btn" href="https://github.com/PunkGo/punkgo-roast-extension" target="_blank">
-			{lang === 'zh' ? '安装 Chrome 扩展 — 免费' : 'Install Chrome Extension — Free'}
+			{isZh ? '安装 Chrome 扩展 — 免费' : 'Install Chrome Extension — Free'}
 		</a>
-		<p class="install-platforms">{lang === 'zh' ? '支持 ChatGPT · DeepSeek · Kimi · 豆包' : 'Works with ChatGPT · DeepSeek · Kimi · Doubao'}</p>
+		<p class="install-platforms">{isZh ? '支持 ChatGPT · DeepSeek · Kimi · 豆包' : 'Works with ChatGPT · DeepSeek · Kimi · Doubao'}</p>
 
 		<details class="cli-alt">
-			<summary>{lang === 'zh' ? '或者用 CLI（开发者）' : 'Or use CLI (developers)'}</summary>
+			<summary>{isZh ? '或者用 CLI（开发者）' : 'Or use CLI (developers)'}</summary>
 			<div class="install-cmd">curl -fsSL https://raw.githubusercontent.com/PunkGo/punkgo-jack/main/install.sh | bash && punkgo-jack roast</div>
 		</details>
 	</section>
@@ -164,11 +165,6 @@
 		border-radius: 16px;
 		border: 1px solid #222;
 	}
-	.install-section h2 {
-		font-size: 28px;
-		color: #e0e0e0;
-		margin-bottom: 24px;
-	}
 	.install-ext-btn {
 		display: inline-block;
 		padding: 16px 48px;
@@ -211,10 +207,6 @@
 		user-select: all;
 		overflow-x: auto;
 		max-width: 100%;
-	}
-	.install-note {
-		font-size: 14px;
-		color: #666;
 	}
 	.how-section {
 		text-align: center;

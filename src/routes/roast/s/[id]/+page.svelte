@@ -148,8 +148,7 @@
 				<a
 					class="install-btn"
 					href="https://github.com/PunkGo/punkgo-roast-extension"
-				<!-- TODO: Replace with real Chrome Web Store URL after approval -->
-					target="_blank"
+					target="_blank">
 				>
 					{share.locale === 'zh' ? '安装插件' : 'Install Extension'}
 				</a>
