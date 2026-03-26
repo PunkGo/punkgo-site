@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/roast",
+      "destination": "https://roast.punkgo.ai",
+      "permanent": true
+    },
+    {
+      "source": "/roast/:path*",
+      "destination": "https://roast.punkgo.ai/:path*",
+      "permanent": true
+    }
+  ]
+}
