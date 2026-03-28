@@ -5,13 +5,13 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import { initLocale } from '$lib/i18n/index.svelte';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
-	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
 	import 'nes.css/css/nes-core.min.css';
 	import '$lib/styles/global.css';
 	import '$lib/styles/animations.css';
 
 	injectAnalytics();
-	injectSpeedInsights();
+
 
 	let { children }: { children: Snippet } = $props();
 
@@ -24,7 +24,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
-		href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap"
 		rel="stylesheet"
 	/>
 	<link rel="icon" href="/favicon.ico" sizes="48x48" />
