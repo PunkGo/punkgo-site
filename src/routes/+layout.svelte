@@ -21,10 +21,9 @@
 </script>
 
 <svelte:head>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link rel="preconnect" href="https://fonts.loli.net" crossorigin="anonymous" />
 	<link
-		href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap"
+		href="https://fonts.loli.net/css2?family=Press+Start+2P&family=VT323&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap"
 		rel="stylesheet"
 	/>
 	<link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -37,7 +36,7 @@
 	<meta property="og:url" content="https://punkgo.ai" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content="https://punkgo.ai/roast/og-image.png" />
-	<meta name="description" content="What's your AI vibe? 16 MBTI dog breed personalities for your AI chat history. Meme radar, shareable cards. Free Chrome extension." />
+	<meta name="description" content="What's your AI vibe? 16 MBTI dog breed personalities. Discover your AI's hidden personality through projective testing." />
 	<meta name="theme-color" content="#0a0a0a" />
 </svelte:head>
 

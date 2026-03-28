@@ -24,7 +24,7 @@
 	"dependencies": {
 		"@sveltejs/adapter-vercel": "^6.3.3",
 		"@vercel/analytics": "^2.0.1",
-		"@vercel/speed-insights": "^2.0.0",
+		"canvas-confetti": "^1.9.4",
 		"mdsvex": "^0.12.7",
 		"nes.css": "^2.2.1"
 	}

@@ -28,7 +28,7 @@
 	<a href="/" class="brand">PunkGo</a>
 	<div class="nav-links">
 		<a href="/" class:active={isActive('/')}>{t('nav.home')}</a>
-		<a href="/roast/" class="roast-link" class:active={isActive('/roast')}>{t('nav.roast')}</a>
+		<a href="https://roast.punkgo.ai" class="roast-link">{t('nav.roast')}</a>
 		<a href="/whitepaper/" class:active={isActive('/whitepaper')}>{t('whitepaper.page_title')}</a>
 		<a href="/showcase/" class:active={isActive('/showcase')}>{t('nav.showcase')}</a>
 		<a href="/blog/" class:active={isActive('/blog')}>{t('nav.blog')}</a>

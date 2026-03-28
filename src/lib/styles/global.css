@@ -36,6 +36,53 @@
   --space-xl: 80px;
 
   --border-pixel: 2px solid var(--neon-green);
+
+  /* === Roast Design Language Tokens (v1.0) === */
+  --color-brand: #39ff14;
+  --color-brand-soft: #2ad10f;
+  --color-accent-pink: #ff5ca1;
+  --color-accent-blue: #00d4ff;
+  --color-accent-yellow: #ffe066;
+  --color-accent-purple: #b388ff;
+  --color-bg-base: #0c0c0f;
+  --color-bg-elevated: #141419;
+  --color-bg-card: #1c1c24;
+  --color-bg-input: #22222c;
+  --color-border-subtle: #2a2a36;
+  --color-border-medium: #3a3a48;
+  --color-text-primary: #f0f0f2;
+  --color-text-secondary: #a0a0b0;
+  --color-text-tertiary: #686878;
+  --color-text-inverse: #0c0c0f;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+  --card-text-dark: #1a1a1a;
+  --card-text-medium: #5a5a5a;
+  --card-text-light: #8a8a8a;
+  --font-display: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif;
+  --roast-space-xs: 0.25rem;
+  --roast-space-sm: 0.5rem;
+  --roast-space-md: 1rem;
+  --roast-space-lg: 1.5rem;
+  --roast-space-xl: 2rem;
+  --roast-space-2xl: 3rem;
+  --roast-space-3xl: 4rem;
+  --roast-space-4xl: 6rem;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --text-h1: 32px;
+    --text-h2: 26px;
+    --text-h3: 22px;
+    --text-h4: 18px;
+  }
 }
 
 * {
